@@ -2,7 +2,6 @@
 
 A modern, responsive portfolio website showcasing my journey as a Data Scientist, built with Next.js 15, TypeScript, and Tailwind CSS. This portfolio features smooth animations, dark/light theme support, multilingual capabilities, and a comprehensive showcase of my skills, projects, and experience.
 
-![Portfolio Preview](./public/amin_no_background.png)
 
 ## ✨ Features
 
@@ -250,8 +249,8 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 📞 Contact
 
 **Amin Shennan**
-- **Email**: [your-email@example.com](mailto:your-email@example.com)
-- **LinkedIn**: [Your LinkedIn Profile](https://linkedin.com/in/your-profile)
+- **Email**: [aminshennan@gmail.com](mailto:aminshennan@gmail.com)
+- **LinkedIn**: [Amin Shennan](https://linkedin.com/in/aminshennan)
 - **Portfolio**: [https://aminshennan.vercel.app](https://aminshennan.vercel.app)
 - **GitHub**: [https://github.com/aminshennan](https://github.com/aminshennan)
 
