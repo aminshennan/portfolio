@@ -11,7 +11,6 @@ A modern, responsive portfolio website showcasing my journey as a Data Scientist
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?logo=vercel&logoColor=white)](https://vercel.com/)
 
-![Portfolio Preview](./public/amin_no_background.png)
 
 ## ✨ Features
 
