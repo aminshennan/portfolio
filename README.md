@@ -2,6 +2,15 @@
 
 A modern, responsive portfolio website showcasing my journey as a Data Scientist, built with Next.js 15, TypeScript, and Tailwind CSS. This portfolio features smooth animations, dark/light theme support, multilingual capabilities, and a comprehensive showcase of my skills, projects, and experience.
 
+## 🏆 Project Status
+
+[![CodeRabbit](https://img.shields.io/coderabbit/prs/github/aminshennan/portfolio?utm_source=oss&utm_medium=github&utm_campaign=aminshennan%2Fportfolio&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)](https://coderabbit.ai)
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![Next.js](https://img.shields.io/badge/Next.js-15.0-black?logo=next.js&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?logo=vercel&logoColor=white)](https://vercel.com/)
+
 ![Portfolio Preview](./public/amin_no_background.png)
 
 ## ✨ Features
@@ -54,6 +63,14 @@ A modern, responsive portfolio website showcasing my journey as a Data Scientist
 - **PostCSS**: CSS processing
 - **Bundle Analyzer**: Analyze and optimize bundle size
 - **Sitemap Generator**: Automatic sitemap generation
+
+### Code Quality & Reviews
+- **CodeRabbit**: AI-powered code review automation for enhanced code quality
+- **TypeScript**: Compile-time type checking and error prevention
+- **ESLint**: Comprehensive linting rules for code consistency
+- **Prettier**: Automated code formatting for maintainability
+- **Git Hooks**: Pre-commit quality checks and validation
+- **Conventional Commits**: Structured commit messages for better project history
 
 ## 🚀 Getting Started
 
