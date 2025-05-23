@@ -1,0 +1,815 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark mode colors only - Improved contrast with enhanced glow colors */
+    --background: 0 0% 0%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 186 100% 50%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 75.1%; /* Increased brightness for better contrast */
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 186 100% 50%;
+    
+    /* Enhanced glow variables */
+    --primary-glow: 0 0 20px rgba(14, 165, 233, 0.4);
+    --secondary-glow: 0 0 25px rgba(236, 72, 153, 0.35);
+    --accent-glow: 0 0 30px rgba(168, 85, 247, 0.3);
+    --text-glow: 0 0 10px rgba(14, 165, 233, 0.3);
+    --button-glow: 0 0 15px rgba(14, 165, 233, 0.4);
+  }
+  
+  /* Always use dark mode */
+  html {
+    color-scheme: dark;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+
+  /* Font settings for different languages */
+  :root[lang="en"] {
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+
+  :root[lang="ar"] {
+    font-family: var(--font-noto-kufi-arabic), system-ui, sans-serif;
+  }
+
+  /* RTL specific adjustments */
+  [dir="rtl"] .rtl-flip {
+    transform: scaleX(-1);
+  }
+
+  [dir="rtl"] .rtl-mirror {
+    @apply mr-auto ml-0;
+  }
+
+  [dir="ltr"] .rtl-mirror {
+    @apply ml-auto mr-0;
+  }
+
+  /* RTL specific spacing adjustments */
+  [dir="rtl"] .ml-2 {
+    margin-left: 0;
+    margin-right: 0.5rem;
+  }
+
+  [dir="rtl"] .mr-2 {
+    margin-right: 0;
+    margin-left: 0.5rem;
+  }
+
+  [dir="rtl"] .ml-4 {
+    margin-left: 0;
+    margin-right: 1rem;
+  }
+
+  [dir="rtl"] .mr-4 {
+    margin-right: 0;
+    margin-left: 1rem;
+  }
+
+  [dir="rtl"] .ml-auto {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  [dir="rtl"] .mr-auto {
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  /* RTL specific flex direction adjustments */
+  [dir="rtl"] .md\:flex-row-reverse {
+    flex-direction: row;
+  }
+
+  [dir="rtl"] .md\:flex-row {
+    flex-direction: row-reverse;
+  }
+
+  /* RTL specific text alignment */
+  [dir="rtl"] .text-left {
+    text-align: right;
+  }
+
+  [dir="rtl"] .text-right {
+    text-align: left;
+  }
+
+  /* RTL specific positioning */
+  [dir="rtl"] .left-4 {
+    left: auto;
+    right: 1rem;
+  }
+
+  [dir="rtl"] .right-6 {
+    right: auto;
+    left: 1.5rem;
+  }
+
+  [dir="rtl"] .md\:left-1\/2 {
+    left: auto;
+    right: 50%;
+  }
+
+  [dir="rtl"] .md\:pr-12 {
+    padding-right: 0;
+    padding-left: 3rem;
+  }
+
+  [dir="rtl"] .md\:pl-12 {
+    padding-left: 0;
+    padding-right: 3rem;
+  }
+
+  [dir="rtl"] .pl-12 {
+    padding-left: 0;
+    padding-right: 3rem;
+  }
+
+  [dir="rtl"] .-translate-x-1\/2 {
+    --tw-translate-x: 50%;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+      skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  /* RTL specific border radius adjustments */
+  [dir="rtl"] .rounded-l-md {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+  }
+
+  [dir="rtl"] .rounded-r-md {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+  }
+
+  /* RTL specific transform adjustments */
+  [dir="rtl"] .rotate-180 {
+    --tw-rotate: -180deg;
+  }
+
+  /* RTL specific grid adjustments */
+  [dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+
+  [dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+  
+  /* Add more space utilities for RTL */
+  [dir="rtl"] .space-x-1 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+  
+  [dir="rtl"] .space-x-3 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+  
+  [dir="rtl"] .space-x-6 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+  
+  [dir="rtl"] .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+  
+  /* RTL gap utilities */
+  [dir="rtl"] .gap-2 {
+    gap: 0.5rem;
+  }
+  
+  [dir="rtl"] .gap-4 {
+    gap: 1rem;
+  }
+  
+  /* RTL padding for consistent text spacing */
+  [dir="rtl"] .px-4 {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  
+  /* Fix icon positioning in RTL */
+  [dir="rtl"] .inline-flex {
+    display: inline-flex;
+  }
+  
+  /* Fix RTL space-between and space-around */
+  [dir="rtl"] .justify-between {
+    justify-content: space-between;
+  }
+
+  /* Fix for centered navigation in RTL mode */
+  [dir="rtl"] .left-1\/2 {
+    left: auto;
+    right: 50%;
+  }
+}
+
+/* Animation keyframes */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(6, 182, 212, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.8);
+  }
+}
+
+/* Custom animation classes */
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.pulse-animation {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.glow-animation {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Enhanced shadows with better visibility */
+.shadow-neon {
+  box-shadow: var(--primary-glow);
+  transition: box-shadow 0.3s ease;
+}
+
+.shadow-neon:hover {
+  box-shadow: 0 0 30px rgba(14, 165, 233, 0.5);
+}
+
+.shadow-neon-pink {
+  box-shadow: var(--secondary-glow);
+  transition: box-shadow 0.3s ease;
+}
+
+.shadow-neon-pink:hover {
+  box-shadow: 0 0 30px rgba(236, 72, 153, 0.5);
+}
+
+.shadow-neon-purple {
+  box-shadow: var(--accent-glow);
+  transition: box-shadow 0.3s ease;
+}
+
+.shadow-neon-purple:hover {
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
+}
+
+.text-glow {
+  text-shadow: var(--text-glow);
+}
+
+.text-glow-pink {
+  text-shadow: 0 0 10px rgba(236, 72, 153, 0.3);
+}
+
+.text-glow-purple {
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+}
+
+/* Enhanced gradient text with stronger effect */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500;
+  text-shadow: 0 0 15px rgba(14, 165, 233, 0.2);
+}
+
+/* Enhanced glass effect with subtle glow */
+.glass-effect {
+  @apply bg-gray-900/40 backdrop-blur-lg border border-gray-800/50;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 0 15px rgba(14, 165, 233, 0.15);
+  transition: all 0.3s ease;
+}
+
+.glass-effect:hover {
+  @apply bg-gray-900/50 border-gray-700/50;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 0 20px rgba(14, 165, 233, 0.25);
+}
+
+/* Enhanced section background with subtle radial gradient */
+.section-background {
+  background: radial-gradient(circle at 100% 0%, rgba(14, 165, 233, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 0% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
+              linear-gradient(180deg, var(--background) 0%, #080818 100%);
+  position: relative;
+}
+
+/* Add enhanced glow to buttons */
+button, .button, a[role="button"] {
+  transition: all 0.3s ease;
+}
+
+button:hover, .button:hover, a[role="button"]:hover {
+  transform: translateY(-1px);
+}
+
+/* Add subtle color hues to various UI components */
+.enhanced-card-glow {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.enhanced-card-glow::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(14, 165, 233, 0),
+    rgba(14, 165, 233, 0.1),
+    rgba(236, 72, 153, 0.1),
+    rgba(168, 85, 247, 0.1),
+    rgba(14, 165, 233, 0)
+  );
+  z-index: -1;
+  transform: translateZ(0);
+  animation: rotate-gradient 10s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.enhanced-card-glow:hover::before {
+  opacity: 1;
+}
+
+@keyframes rotate-gradient {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Enhanced hue for scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, rgba(14, 165, 233, 0.5), rgba(236, 72, 153, 0.5));
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, rgba(14, 165, 233, 0.7), rgba(236, 72, 153, 0.7));
+}
+
+/* Enhanced focus ring with glow */
+:focus-visible {
+  outline: 2px solid rgb(14, 165, 233);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.25);
+}
+
+/* Add more space utilities for RTL */
+[dir="rtl"] .space-x-1 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+  
+[dir="rtl"] .space-x-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+  
+[dir="rtl"] .space-x-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+  
+[dir="rtl"] .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+  
+/* RTL gap utilities */
+[dir="rtl"] .gap-2 {
+  gap: 0.5rem;
+}
+  
+[dir="rtl"] .gap-4 {
+  gap: 1rem;
+}
+  
+/* RTL padding for consistent text spacing */
+[dir="rtl"] .px-4 {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+  
+/* Fix icon positioning in RTL */
+[dir="rtl"] .inline-flex {
+  display: inline-flex;
+}
+  
+/* Fix RTL space-between and space-around */
+[dir="rtl"] .justify-between {
+  justify-content: space-between;
+}
+
+/* Fix for centered navigation in RTL mode */
+[dir="rtl"] .left-1\/2 {
+  left: auto;
+  right: 50%;
+}
+
+/* Add these styles to improve accessibility and performance */
+
+/* Focus styles for better accessibility */
+:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+/* Reduce motion for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Optimize font display */
+@font-face {
+  font-display: swap;
+}
+
+/* Improve text rendering */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Print styles */
+@media print {
+  /* Hide elements not needed for printing */
+  header,
+  footer,
+  nav,
+  button,
+  .floating-nav,
+  .scroll-progress,
+  .background-effects {
+    display: none !important;
+  }
+
+  /* Reset background for printing */
+  body,
+  html {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+  }
+
+  /* Ensure content is visible */
+  .container {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Adjust section spacing */
+  section {
+    page-break-inside: avoid;
+    margin: 20pt 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Ensure text is readable */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: black !important;
+    page-break-after: avoid;
+  }
+
+  p,
+  li {
+    color: #333 !important;
+  }
+
+  /* Ensure links are visible */
+  a {
+    text-decoration: underline;
+    color: #0000ee !important;
+  }
+
+  /* Add page breaks where needed */
+  #skills,
+  #projects,
+  #experience,
+  #volunteer,
+  #contact {
+    page-break-before: always;
+  }
+
+  /* Remove animations and effects */
+  * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Show URLs for links */
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 90%;
+  }
+
+  /* Don't show URLs for internal links */
+  a[href^="#"]:after {
+    content: "";
+  }
+}
+
+/* Class added during printing */
+body.printing * {
+  transition: none !important;
+}
+
+/* Skip to content link for keyboard users */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: hsl(var(--primary));
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Improved contrast for better readability */
+.dark .text-gray-400 {
+  color: #a1a1aa !important; /* Slightly brighter for better contrast in dark mode */
+}
+
+.text-gray-400 {
+  color: #4b5563 !important; /* Darker for better contrast in light mode */
+}
+
+/* Improved animations */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Background adjustments (dark mode only) */
+.bg-gradient-dark {
+  @apply bg-black;
+}
+
+.bg-card-dark {
+  @apply bg-gray-900;
+}
+
+/* Section background with consistent styling */
+.section-background {
+  @apply bg-black/80 backdrop-blur-sm relative;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle section divider for better visual separation */
+.section-background + .section-background::before {
+  content: none; /* Remove divider between sections */
+  /* The rest of the properties are no longer needed */
+}
+
+.section-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  @apply bg-gradient-to-tr from-cyan-950/20 via-transparent to-purple-950/20;
+}
+
+.section-background::after {
+  content: "";
+  position: absolute;
+  height: 40%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  @apply shadow-[inset_0_-60px_60px_-10px_rgba(0,0,0,0.3)];
+}
+
+/* Theme transition */
+.theme-transition {
+  @apply transition-colors duration-300;
+}
+
+/* New styles for skill bars */
+.skill-bar {
+  @apply mb-6 relative; /* Increased margin bottom for better spacing */
+}
+
+.skill-bar:hover .skill-tooltip {
+  @apply opacity-100 visible;
+}
+
+.skill-tooltip {
+  @apply absolute -top-14 left-1/2 transform -translate-x-1/2 bg-gray-800 py-2 px-4 rounded shadow-lg z-10 text-sm opacity-0 invisible transition-opacity duration-300 pointer-events-none w-max max-w-[16rem] text-center;
+}
+
+.skill-tooltip::after {
+  content: '';
+  @apply absolute bottom-[-6px] left-1/2 transform -translate-x-1/2 border-t-gray-800 border-t-4 border-l-4 border-r-4 border-l-transparent border-r-transparent;
+}
+
+/* Enhanced card hover effects */
+.enhanced-card-hover {
+  @apply transition-all duration-300;
+}
+
+.enhanced-card-hover:hover {
+  transform: translateY(-5px);
+  @apply shadow-xl shadow-primary/20;
+}
+
+/* Improve contrast for badges */
+.badge {
+  @apply bg-opacity-90 font-medium;
+}
+
+/* Add subtle hover effect to navigation links */
+.nav-link {
+  @apply relative overflow-hidden;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 ease-in-out;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+/* Project cards with subtle hover animation */
+.project-card {
+  @apply transition-all duration-300;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Feature highlight for special elements */
+.feature-highlight {
+  @apply relative;
+}
+
+.feature-highlight::before {
+  content: '';
+  @apply absolute -inset-1 bg-gradient-to-r from-primary/20 to-pink-500/20 rounded-lg blur-md opacity-0 transition-opacity duration-300;
+  z-index: -1;
+}
+
+.feature-highlight:hover::before {
+  @apply opacity-100;
+}
+
+/* Special animation for the featured project */
+@keyframes pulse-border {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.2);
+  }
+}
+
+.featured-project {
+  animation: pulse-border 3s infinite;
+}
+
+/* Improved contact form input styling */
+.contact-input {
+  @apply bg-gray-800/50 border-gray-700 focus:border-primary/70 focus:ring-1 focus:ring-primary/50;
+}
+
+/* Timeline improvements */
+.timeline-item {
+  @apply relative pb-8;
+}
+
+.timeline-connector {
+  @apply absolute top-0 bottom-0 left-4 w-0.5 bg-gradient-to-b from-primary via-pink-500 to-primary;
+}
+
+.timeline-dot {
+  @apply absolute top-1 left-4 -ml-[7px] h-3.5 w-3.5 rounded-full bg-primary shadow-glow;
+}
+
+.shadow-glow {
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+}
+
+/* Section transitions */
+.section-transition {
+  @apply transition-all duration-500 ease-in-out;
+}
+
+.section-transition:hover {
+  @apply bg-black/50;
+}
+
