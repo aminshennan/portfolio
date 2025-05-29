@@ -119,7 +119,7 @@ export const translations: Translations = {
     // Skills section
     skills: {
       title: "Skills",
-      subtitle: "Expertise across the data science spectrum",
+      subtitle: "Expertise across the data science & engineering spectrum",
       tabs: {
         technical: "Technical Skills",
         soft: "Soft Skills",
@@ -128,6 +128,35 @@ export const translations: Translations = {
         technicalSkills: "Technical Skills",
         programmingLanguages: "Programming Languages",
         toolsFrameworks: "Tools & Frameworks",
+        dataEngineering: "Data Engineering & Cleaning",
+        machineLearning: "Machine & Deep Learning",
+        nlp: "Natural Language Processing",
+        businessIntelligence: "Business Intelligence & Visualization",
+        webDev: "Web & DevOps",
+      },
+      technicalDescription: {
+        dataEngineering: "Proficient in data transformation, cleaning, and ETL pipeline development",
+        machineLearning: "Expertise in developing and deploying ML models for various applications",
+        deepLearning: "Experience with neural networks and deep learning architectures",
+        dataAnalysis: "Strong analytical skills with focus on extracting actionable insights",
+        nlp: "Knowledge of text processing and language models for text-based applications",
+        businessIntelligence: "Creating dashboards and visualizations for business decision making",
+      },
+      languagesDescription: {
+        python: "Primary language for data science and ML/DL workflows",
+        sql: "Database queries, data extraction and manipulation",
+        typescript: "Web development and frontend applications",
+        java: "Backend applications and enterprise systems",
+      },
+      toolsDescription: {
+        pandas: "Data manipulation and preprocessing libraries",
+        scikit: "Machine learning algorithms and model development",
+        tensorflow: "Deep learning frameworks for neural network development",
+        pytorch: "Research-oriented deep learning implementation",
+        powerbi: "Business intelligence and interactive dashboard creation",
+        huggingface: "NLP models and transformer architecture implementations",
+        nextjs: "React framework for web application development",
+        fastapi: "Building high-performance APIs and web services",
       },
       softSkills: {
         communication: {
@@ -205,7 +234,7 @@ export const translations: Translations = {
             "Positive Stakeholder Feedback: The dashboard's user-friendly interface and comprehensive coverage of AFC data garnered strong acceptance among non-technical and technical users alike."
           ],
           liveUrl: "https://app.powerbi.com/view?r=eyJrIjoiOTBkZTJmYTgtYzNlOC00YmY0LWJmN2ItNjY2ODU0NzM4MDQyIiwidCI6IjdlMGI1ZmNmLTEyYzQtNGVmZi05NmI2LTQ2NjRmMjVkYzdkYSIsImMiOjEwfQ%3D%3D",
-          image: "/Visual data-bro.png",
+          image: "https://img.freepik.com/free-vector/sports-analytics-dashboard-concept-illustration_114360-10679.jpg",
           featured: true
         },
         {
@@ -231,7 +260,7 @@ export const translations: Translations = {
             "Created intuitive demo for non-technical users"
           ],
           githubUrl: "https://github.com/aminshennan/Forgery_Detection_with_ViT_and_RestNet",
-          image: "/ai-detection.png"
+          image: "https://img.freepik.com/free-vector/artificial-intelligence-concept-illustration_114360-1281.jpg"
         },
         {
           id: "scientific-paper-summarizer",
@@ -256,7 +285,7 @@ export const translations: Translations = {
             "Created intuitive interface for non-technical users"
           ],
           githubUrl: "https://github.com/aminshennan/Scientific-Paper-Summarization-via-LoRA-Tuned-FLAN-T5-XXL-",
-          image: "/nlp-summarization.png"
+          image: "https://img.freepik.com/free-vector/natural-language-processing-abstract-concept-illustration_335657-3875.jpg"
         },
         {
           id: "intelligent-parking",
@@ -281,7 +310,7 @@ export const translations: Translations = {
             "Improved parking utilization by 30%"
           ],
           githubUrl: "https://github.com/aminshennan/Car-Parking-System",
-          image: "/parking-system.png"
+          image: "https://img.freepik.com/free-vector/smart-parking-abstract-concept-illustration_335657-3826.jpg"
         },
         {
           id: "sentiment-analysis",
@@ -306,7 +335,7 @@ export const translations: Translations = {
             "Extracted actionable insights from customer feedback"
           ],
           githubUrl: "https://github.com/aminshennan/Sentiment-Analysis-of-Women-s-Clothing-E-Commerce-Reviews-Using-Machine-Learning",
-          image: "/sentiment-analysis.png"
+          image: "https://img.freepik.com/free-vector/feedback-concept-illustration_114360-4896.jpg"
         },
         {
           id: "sign-language",
@@ -331,7 +360,7 @@ export const translations: Translations = {
             "Reduced communication barriers for Arabic sign language users"
           ],
           githubUrl: "https://github.com/aminshennan/Hand-Sign-language-detection",
-          image: "/sign-language.png"
+          image: "https://img.freepik.com/free-vector/sign-language-concept-illustration_114360-7322.jpg"
         },
         {
           id: "portfolio-site",
@@ -356,7 +385,7 @@ export const translations: Translations = {
             "Improved visibility in search engine results"
           ],
           githubUrl: "https://github.com/aminshennan/portfolio",
-          image: "/portfolio-site.png"
+          image: "https://img.freepik.com/free-vector/gradient-ui-ux-background_23-2149052117.jpg"
         },
         {
           id: "marital-satisfaction",
@@ -381,7 +410,7 @@ export const translations: Translations = {
             "Created visualizations for non-technical stakeholders"
           ],
           githubUrl: "https://github.com/aminshennan/Marital-Satisfaction-Analysis",
-          image: "/data-mining.png"
+          image: "https://img.freepik.com/free-vector/big-data-analytics-abstract-concept-illustration_335657-4810.jpg"
         }
       ],
 
@@ -477,24 +506,24 @@ export const translations: Translations = {
           company: "SRKK",
           period: "10/2023 - 01/2024",
           description: [
-            "أتمتة لوحات مؤشرات الأداء المالية في Power BI و Microsoft Fabric، باستخدام تدفقات بيانات Python المبرمجة وجدولة التحديثات المحسنة",
-            "تطوير رسومات تفاعلية لتبسيط عمليات إعداد التقارير المالية",
+            "Automated financial KPI dashboards in Power BI and Microsoft Fabric, using programmed Python data flows and optimized update scheduling",
+            "Developed interactive visualizations to streamline financial reporting processes",
           ],
           type: "work",
-          location: "سايبرجايا، ماليزيا",
-          skills: ["Power BI", "Python", "Microsoft Fabric", "تصور البيانات", "ETL"],
+          location: "Cyberjaya, Malaysia",
+          skills: ["Power BI", "Python", "Microsoft Fabric", "Data Visualization", "ETL"],
         },
         {
           title: "Data Analyst Intern",
           company: "Asian Football Confederation",
           period: "07/2023 - 10/2023",
           description: [
-            "تصميم لوحة معلومات تحليلات المباريات في Power BI بدمج واجهتي برمجة تطبيقات لكرة القدم؛ تصميم عمليات ETL في Power Query وهيكلة أربعة جداول علائقية، مما أدى إلى اعتماد المستخدمين خلال فترة التدريب",
-            "دمج أكثر من 15 شريحة تفاعلية (البطولات، الفرق، اللاعبين) وبطاقات مؤشرات الأداء الرئيسية، مما أدى إلى تقليل كبير في أعباء العمل اليدوية في Excel للمنسقين",
+            "Designed a match analytics dashboard in Power BI by integrating two football APIs; engineered ETL processes in Power Query and structured four relational tables, leading to user adoption during internship period",
+            "Incorporated over 15 interactive slicers (tournaments, teams, players) and KPI cards, resulting in significant reduction of manual Excel workload for coordinators",
           ],
           type: "work",
-          location: "سايبرجايا، ماليزيا",
-          skills: ["Power BI", "تحليلات الرياضة", "تصور البيانات", "ETL", "تكامل واجهات برمجة التطبيقات"],
+          location: "Cyberjaya, Malaysia",
+          skills: ["Power BI", "Sports Analytics", "Data Visualization", "ETL", "API Integration"],
         },
         {
           title: "B.Sc. Computer Science (Hons.) - Data Science Specialisation",
@@ -706,7 +735,7 @@ export const translations: Translations = {
     // Skills section
     skills: {
       title: "المهارات",
-      subtitle: "خبرة في مختلف مجالات علوم البيانات",
+      subtitle: "خبرة في مختلف مجالات علوم البيانات والهندسة",
       tabs: {
         technical: "المهارات التقنية",
         soft: "المهارات الشخصية",
@@ -715,6 +744,35 @@ export const translations: Translations = {
         technicalSkills: "المهارات التقنية",
         programmingLanguages: "لغات البرمجة",
         toolsFrameworks: "الأدوات والأطر",
+        dataEngineering: "هندسة وتنظيف البيانات",
+        machineLearning: "التعلم الآلي والعميق",
+        nlp: "معالجة اللغة الطبيعية",
+        businessIntelligence: "ذكاء الأعمال والتصور",
+        webDev: "الويب وعمليات التطوير",
+      },
+      technicalDescription: {
+        dataEngineering: "كفاءة في تحويل البيانات وتنظيفها وتطوير خطوط أنابيب ETL",
+        machineLearning: "خبرة في تطوير ونشر نماذج التعلم الآلي لمختلف التطبيقات",
+        deepLearning: "خبرة في الشبكات العصبية وهندسة التعلم العميق",
+        dataAnalysis: "مهارات تحليلية قوية مع التركيز على استخراج رؤى قابلة للتنفيذ",
+        nlp: "معرفة بمعالجة النصوص ونماذج اللغة للتطبيقات النصية",
+        businessIntelligence: "إنشاء لوحات المعلومات والتصورات لاتخاذ القرارات التجارية",
+      },
+      languagesDescription: {
+        python: "اللغة الأساسية لعلوم البيانات وسير عمل ML/DL",
+        sql: "استعلامات قواعد البيانات واستخراج البيانات ومعالجتها",
+        typescript: "تطوير الويب وتطبيقات الواجهة الأمامية",
+        java: "تطبيقات الخلفية وأنظمة المؤسسات",
+      },
+      toolsDescription: {
+        pandas: "مكتبات معالجة البيانات وتجهيزها",
+        scikit: "خوارزميات التعلم الآلي وتطوير النماذج",
+        tensorflow: "أطر التعلم العميق لتطوير الشبكات العصبية",
+        pytorch: "تنفيذ التعلم العميق الموجه للبحث",
+        powerbi: "ذكاء الأعمال وإنشاء لوحات المعلومات التفاعلية",
+        huggingface: "نماذج معالجة اللغة الطبيعية وتنفيذ هندسة المحولات",
+        nextjs: "إطار React لتطوير تطبيقات الويب",
+        fastapi: "بناء واجهات برمجة التطبيقات وخدمات الويب عالية الأداء",
       },
       softSkills: {
         communication: {
@@ -750,7 +808,7 @@ export const translations: Translations = {
           description: "توجيه الفرق والمشاريع نحو نتائج ناجحة",
         },
       },
-      hoverMessage: "ضع المؤشر فوق المهارات لمزيد من التفاصيل",
+      hoverMessage: "حرك المؤشر فوق أشرطة المهارات لمزيد من التفاصيل",
     },
 
     // Projects section

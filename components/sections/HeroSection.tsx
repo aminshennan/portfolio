@@ -172,43 +172,6 @@ export const HeroSection = () => {
               </GlowingButton>
             </Link>
           </motion.div>
-
-          {/* Statistics section with interactive cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.5 }}
-            className="mt-12 md:mt-16 w-full max-w-3xl"
-          >
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <EnhancedCard 
-                    key={index} 
-                    hoverEffect="glow" 
-                    className={`glass-effect border border-${stat.color.split('-')[1]}-800/50 bg-gradient-to-br ${stat.bgColor}`}
-                  >
-                    <ECardContent className="p-4 sm:p-6 flex flex-col items-center text-center">
-                      {/* Stat icon with themed styling */}
-                      <div className={`rounded-full p-3 mb-3 bg-background/30 backdrop-blur-md border border-${stat.color.split('-')[1]}-700/30`}>
-                        <stat.icon className={`h-7 w-7 sm:h-9 sm:w-9 ${stat.color}`} />
-                      </div>
-                      
-                      {/* Stat value */}
-                      <div className="text-3xl sm:text-4xl font-bold text-foreground">{stat.value}</div>
-                      
-                      {/* Stat label */}
-                      <p className="text-muted-foreground text-xs sm:text-sm mt-1 font-medium">{stat.label}</p>
-                    </ECardContent>
-                  </EnhancedCard>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </div>
       

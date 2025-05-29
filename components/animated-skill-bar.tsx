@@ -13,21 +13,6 @@ interface AnimatedSkillBarProps {
   description?: string
 }
 
-interface Milestone {
-  label: string
-  position: number
-  active: boolean
-}
-
-// Extract utility functions outside component to avoid recreation on each render
-const getSkillCategory = (percentage: number): string => {
-  if (percentage >= 90) return "Expert";
-  if (percentage >= 80) return "Advanced";
-  if (percentage >= 70) return "Proficient";
-  if (percentage >= 60) return "Intermediate";
-  return "Beginner";
-}
-
 const getColorClass = (color: string): string => {
   if (color.includes('cyan')) return 'cyan';
   if (color.includes('pink')) return 'pink';
@@ -38,21 +23,6 @@ const getColorClass = (color: string): string => {
   if (color.includes('blue')) return 'blue';
   if (color.includes('red')) return 'red';
   return 'cyan';
-}
-
-const getMilestones = (percentage: number): Milestone[] => {
-  const baseMarkers = [
-    { label: "Beginner", position: 20 },
-    { label: "Intermediate", position: 60 },
-    { label: "Proficient", position: 70 },
-    { label: "Advanced", position: 80 },
-    { label: "Expert", position: 90 }
-  ];
-
-  return baseMarkers.map(marker => ({
-    ...marker,
-    active: percentage >= marker.position
-  }));
 }
 
 export default function AnimatedSkillBar({ 
@@ -75,10 +45,8 @@ export default function AnimatedSkillBar({
     }
   }, [inView, percentage])
 
-  // Memoize these calculations to avoid recalculating on every render
-  const level = useMemo(() => getSkillCategory(percentage), [percentage]);
+  // Memoize color class calculation to avoid recalculating on every render
   const colorClass = useMemo(() => getColorClass(color), [color]);
-  const milestones = useMemo(() => getMilestones(percentage), [percentage]);
 
   return (
     <motion.div 
@@ -90,7 +58,7 @@ export default function AnimatedSkillBar({
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
     >
-      {/* Floating Tooltip */}
+      {/* Simplified Floating Tooltip */}
       <AnimatePresence>
         {showTooltip && (
           <motion.div 
@@ -101,9 +69,6 @@ export default function AnimatedSkillBar({
             style={{ boxShadow: `0 0 15px rgba(var(--${colorClass}-rgb), 0.15)` }}
           >
             <div className="text-center mb-2">
-              <span className={`inline-block px-2 py-0.5 text-xs font-semibold rounded-full bg-${colorClass}-500/20 text-${colorClass}-400 mb-1`}>
-                {level} Level
-              </span>
               <h4 className="text-sm font-bold">{name}</h4>
             </div>
             
@@ -111,14 +76,10 @@ export default function AnimatedSkillBar({
             
             <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent mb-2"></div>
             
-            <div className="grid grid-cols-2 gap-2 text-xs">
-              <div className="flex items-center">
+            <div className="text-center text-xs">
+              <div className="flex items-center justify-center">
                 <div className={`w-2 h-2 rounded-full bg-${colorClass}-500 mr-1`}></div>
                 <span>Proficiency: {percentage}%</span>
-              </div>
-              <div className="flex items-center">
-                <div className={`w-2 h-2 rounded-full bg-${colorClass}-800 mr-1`}></div>
-                <span>Experience: {Math.floor(percentage / 10)} years</span>
               </div>
             </div>
             
@@ -153,11 +114,11 @@ export default function AnimatedSkillBar({
       
       <div className="relative">
         <div className="w-full bg-gray-800/70 rounded-full h-3 overflow-hidden shadow-inner group-hover:bg-gray-800/90 transition-colors">
-        <motion.div
+          <motion.div
             className={`h-3 rounded-full ${color} shadow-glow relative overflow-hidden`}
-          initial={{ width: 0 }}
-          animate={{ width: `${width}%` }}
-          transition={{ duration: 1, ease: "easeOut" }}
+            initial={{ width: 0 }}
+            animate={{ width: `${width}%` }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
             {/* Animated shine effect */}
             <motion.div 
@@ -166,30 +127,6 @@ export default function AnimatedSkillBar({
               transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
             />
           </motion.div>
-        </div>
-        
-        {/* Skill milestones */}
-        <div className="flex justify-between w-full absolute -bottom-4 px-1">
-          {milestones.map((milestone, index) => (
-            <div 
-              key={index} 
-              className="relative"
-              style={{ left: `${milestone.position}%`, transform: 'translateX(-50%)' }}
-            >
-              <div 
-                className={`w-0.5 h-1.5 ${milestone.active ? `bg-${colorClass}-500` : 'bg-gray-600'}`}
-                style={{ opacity: milestone.active ? 1 : 0.5 }}
-              ></div>
-              {showTooltip && (
-                <div 
-                  className={`absolute -bottom-3 transform -translate-x-1/2 text-[9px] whitespace-nowrap ${milestone.active ? `text-${colorClass}-500` : 'text-gray-600'}`}
-                  style={{ opacity: milestone.active ? 1 : 0.5 }}
-                >
-                  {milestone.label}
-                </div>
-              )}
-            </div>
-          ))}
         </div>
       </div>
     </motion.div>

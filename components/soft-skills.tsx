@@ -5,62 +5,72 @@ import type React from "react"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Users, MessageSquare, Brain, Clock, Lightbulb, Puzzle, Zap, Target } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 interface SoftSkill {
   name: string
   icon: React.ReactNode
   description: string
   strength: number // 1-10
+  key: string
 }
 
 const softSkills: SoftSkill[] = [
   {
     name: "Communication",
     icon: <MessageSquare className="h-6 w-6" />,
-    description: "Effectively conveying complex data insights to non-technical stakeholders",
+    description: "Effectively conveying complex data insights to stakeholders",
     strength: 9,
+    key: "communication"
   },
   {
     name: "Teamwork",
     icon: <Users className="h-6 w-6" />,
     description: "Collaborating across departments to achieve project goals",
     strength: 8,
+    key: "teamwork"
   },
   {
     name: "Problem Solving",
     icon: <Puzzle className="h-6 w-6" />,
     description: "Breaking down complex problems into manageable components",
     strength: 10,
+    key: "problemSolving"
   },
   {
     name: "Critical Thinking",
     icon: <Brain className="h-6 w-6" />,
     description: "Analyzing information objectively to make reasoned judgments",
     strength: 9,
+    key: "criticalThinking"
   },
   {
     name: "Time Management",
     icon: <Clock className="h-6 w-6" />,
     description: "Prioritizing tasks and meeting deadlines efficiently",
     strength: 8,
+    key: "timeManagement"
   },
   {
     name: "Creativity",
     icon: <Lightbulb className="h-6 w-6" />,
     description: "Developing innovative approaches to data challenges",
     strength: 7,
+    key: "creativity"
   },
   {
     name: "Adaptability",
     icon: <Zap className="h-6 w-6" />,
     description: "Quickly adjusting to new technologies and methodologies",
     strength: 9,
+    key: "adaptability"
   },
   {
     name: "Leadership",
     icon: <Target className="h-6 w-6" />,
     description: "Guiding teams and projects to successful outcomes",
     strength: 8,
+    key: "leadership"
   },
 ]
 
@@ -69,6 +79,8 @@ export default function SoftSkills() {
     triggerOnce: true,
     threshold: 0.1,
   })
+  
+  const { t } = useLanguage()
 
   return (
     <div ref={ref} className="relative">
@@ -83,7 +95,7 @@ export default function SoftSkills() {
 
           return (
             <motion.div
-              key={skill.name}
+              key={skill.key}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -133,7 +145,7 @@ export default function SoftSkills() {
                 animate={inView ? { opacity: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
               >
-                {skill.name}
+                {t(`skills.softSkills.${skill.key}.name`)}
               </motion.h3>
 
               <motion.p
@@ -142,7 +154,7 @@ export default function SoftSkills() {
                 animate={inView ? { opacity: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
               >
-                {skill.description}
+                {t(`skills.softSkills.${skill.key}.description`)}
               </motion.p>
             </motion.div>
           )

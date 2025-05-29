@@ -105,6 +105,15 @@ const nextConfig = {
       },
     ]
   },
+  
+  // Script to run before React hydration to remove Grammarly attributes
+  // This prevents hydration errors caused by browser extensions
+  scripts: [
+    {
+      src: '/scripts/fix-hydration.js',
+      strategy: 'beforeInteractive',
+    },
+  ],
 }
 
 // Merge user configuration if available

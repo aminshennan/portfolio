@@ -19,6 +19,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { LanguageProvider } from "@/contexts/language-context"
 import ErrorBoundary from "@/components/error-boundary"
+import Script from "next/script"
 
 // Font configurations with optimization
 const inter = Inter({
@@ -130,6 +131,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/android-chrome-192x192.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        
+        {/* Script to fix hydration issues caused by browser extensions like Grammarly */}
+        <Script 
+          id="hydration-fix" 
+          src="/scripts/fix-hydration.js" 
+          strategy="beforeInteractive" 
+        />
       </head>
       <body className="min-h-screen bg-background font-sans antialiased">
         <ErrorBoundary>

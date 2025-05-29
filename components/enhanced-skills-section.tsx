@@ -36,33 +36,30 @@ interface Skill {
 }
 
 const technicalSkills: Skill[] = [
-  { name: "Machine Learning", percentage: 90, icon: <Brain className="h-4 w-4 text-cyan-400" /> },
-  { name: "Deep Learning", percentage: 85, icon: <Cpu className="h-4 w-4 text-pink-400" /> },
-  { name: "Data Analysis", percentage: 95, icon: <BarChart className="h-4 w-4 text-yellow-400" /> },
-  { name: "Statistical Modeling", percentage: 88, icon: <LineChart className="h-4 w-4 text-green-400" /> },
-  { name: "Big Data", percentage: 80, icon: <Database className="h-4 w-4 text-purple-400" /> },
-  { name: "Cloud Computing", percentage: 75, icon: <Server className="h-4 w-4 text-blue-400" /> },
+  { name: "Data Engineering", percentage: 90, icon: <Database className="h-4 w-4 text-cyan-400" /> },
+  { name: "Machine Learning", percentage: 92, icon: <Brain className="h-4 w-4 text-pink-400" /> },
+  { name: "Deep Learning", percentage: 85, icon: <Cpu className="h-4 w-4 text-yellow-400" /> },
+  { name: "Data Analysis", percentage: 95, icon: <BarChart className="h-4 w-4 text-green-400" /> },
+  { name: "NLP", percentage: 88, icon: <MessageSquare className="h-4 w-4 text-purple-400" /> },
+  { name: "Business Intelligence", percentage: 90, icon: <LineChart className="h-4 w-4 text-blue-400" /> },
 ]
 
 const programmingLanguages: Skill[] = [
   { name: "Python", percentage: 95, color: "bg-cyan-500" },
-  { name: "R", percentage: 85, color: "bg-pink-500" },
-  { name: "SQL", percentage: 90, color: "bg-yellow-500" },
-  { name: "JavaScript", percentage: 75, color: "bg-green-500" },
-  { name: "Java", percentage: 70, color: "bg-purple-500" },
-  { name: "PHP (Laravel)", percentage: 65, color: "bg-blue-500" },
-  { name: "C++", percentage: 60, color: "bg-red-500" },
+  { name: "SQL", percentage: 90, color: "bg-pink-500" },
+  { name: "TypeScript/JavaScript", percentage: 85, color: "bg-yellow-500" },
+  { name: "Java", percentage: 75, color: "bg-green-500" },
 ]
 
 const toolsAndFrameworks: Skill[] = [
-  { name: "TensorFlow", percentage: 90, color: "bg-orange-500" },
-  { name: "PyTorch", percentage: 85, color: "bg-red-500" },
-  { name: "Scikit-Learn", percentage: 95, color: "bg-green-500" },
-  { name: "Pandas", percentage: 95, color: "bg-blue-500" },
+  { name: "Pandas/NumPy", percentage: 95, color: "bg-orange-500" },
+  { name: "scikit-learn", percentage: 92, color: "bg-red-500" },
+  { name: "TensorFlow/Keras", percentage: 88, color: "bg-green-500" },
+  { name: "PyTorch", percentage: 85, color: "bg-blue-500" },
   { name: "Power BI", percentage: 90, color: "bg-yellow-500" },
-  { name: "Tableau", percentage: 85, color: "bg-cyan-500" },
-  { name: "OpenCV", percentage: 80, color: "bg-purple-500" },
-  { name: "NumPy", percentage: 90, color: "bg-pink-500" },
+  { name: "Hugging Face", percentage: 85, color: "bg-cyan-500" },
+  { name: "Next.js", percentage: 80, color: "bg-purple-500" },
+  { name: "FastAPI/Flask", percentage: 75, color: "bg-pink-500" },
 ]
 
 interface SoftSkill {

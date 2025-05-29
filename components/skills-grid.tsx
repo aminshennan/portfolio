@@ -2,34 +2,30 @@
 
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import { Brain, BarChart, Database, GitBranch, Code, Server, LineChart, Cpu } from "lucide-react"
+import { Brain, BarChart, Database, Code, Server, LineChart, Cpu, MessageSquare } from "lucide-react"
 import AnimatedSkillBar from "./animated-skill-bar"
 
 const technicalSkills = [
-  { name: "Machine Learning", percentage: 90, icon: <Brain className="h-4 w-4 text-cyan-400" /> },
-  { name: "Deep Learning", percentage: 85, icon: <Cpu className="h-4 w-4 text-pink-400" /> },
-  { name: "Data Analysis", percentage: 95, icon: <BarChart className="h-4 w-4 text-yellow-400" /> },
-  { name: "Statistical Modeling", percentage: 88, icon: <LineChart className="h-4 w-4 text-green-400" /> },
-  { name: "Big Data", percentage: 80, icon: <Database className="h-4 w-4 text-purple-400" /> },
-  { name: "Cloud Computing", percentage: 75, icon: <Server className="h-4 w-4 text-blue-400" /> },
-  { name: "Python", percentage: 95, icon: <Code className="h-4 w-4 text-cyan-400" /> },
-  { name: "R", percentage: 85, icon: <GitBranch className="h-4 w-4 text-pink-400" /> },
+  { name: "Data Engineering", percentage: 90, icon: <Database className="h-4 w-4 text-cyan-400" /> },
+  { name: "Machine Learning", percentage: 92, icon: <Brain className="h-4 w-4 text-pink-400" /> },
+  { name: "Deep Learning", percentage: 85, icon: <Cpu className="h-4 w-4 text-yellow-400" /> },
+  { name: "Data Analysis", percentage: 95, icon: <BarChart className="h-4 w-4 text-green-400" /> },
+  { name: "NLP", percentage: 88, icon: <MessageSquare className="h-4 w-4 text-purple-400" /> },
+  { name: "Business Intelligence", percentage: 90, icon: <LineChart className="h-4 w-4 text-blue-400" /> },
 ]
 
 const programmingSkills = [
   { name: "Python", percentage: 95, color: "bg-cyan-500" },
-  { name: "R", percentage: 85, color: "bg-pink-500" },
-  { name: "SQL", percentage: 90, color: "bg-yellow-500" },
-  { name: "JavaScript", percentage: 75, color: "bg-green-500" },
-  { name: "Java", percentage: 70, color: "bg-purple-500" },
-  { name: "Scala", percentage: 65, color: "bg-blue-500" },
+  { name: "SQL", percentage: 90, color: "bg-pink-500" },
+  { name: "TypeScript/JavaScript", percentage: 85, color: "bg-yellow-500" },
+  { name: "Java", percentage: 75, color: "bg-green-500" },
 ]
 
 const toolsAndFrameworks = [
-  { name: "TensorFlow", percentage: 90, color: "bg-orange-500" },
-  { name: "PyTorch", percentage: 85, color: "bg-red-500" },
-  { name: "Scikit-Learn", percentage: 95, color: "bg-green-500" },
-  { name: "Pandas", percentage: 95, color: "bg-blue-500" },
+  { name: "Pandas/NumPy", percentage: 95, color: "bg-orange-500" },
+  { name: "scikit-learn", percentage: 92, color: "bg-red-500" },
+  { name: "TensorFlow/Keras", percentage: 88, color: "bg-green-500" },
+  { name: "PyTorch", percentage: 85, color: "bg-blue-500" },
 ]
 
 export default function SkillsGrid() {
