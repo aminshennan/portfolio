@@ -48,7 +48,7 @@ export default function LanguageSwitcher() {
         <div className="flex items-center space-x-2">
           <Globe className="h-4 w-4 text-primary" />
           <span className="text-xs font-medium">
-            {language === "en" ? "EN" : "ع"}
+            {language === "en" ? "EN" : "عر"}
           </span>
           <motion.div 
             initial={false}

@@ -649,10 +649,10 @@ export const translations: Translations = {
       title: "نبذة عني",
       subtitle: "تحويل البيانات المعقدة إلى رؤى قابلة للتنفيذ",
       paragraph1:
-        "أنا عالم بيانات طموح حاصل على بكالوريوس في علوم الكمبيوتر متخصص في علوم البيانات. لدي خبرة شاملة في تحليل البيانات والتعلم الآلي والتصور.",
+        "عالم بيانات ديناميكي مع خبرة عملية في تحليل البيانات وتصورها لأكثر من 6 أشهر. ماهر في أتمتة لوحات مؤشرات الأداء المالية باستخدام Power BI و Microsoft Fabric، وتطوير لوحات تحليلات المباريات من واجهات برمجة التطبيقات.",
       paragraph2:
-        "متمكن في تطوير ونشر حلول قائمة على البيانات، وإنشاء لوحات معلومات تفاعلية، وتطبيق تقنيات التعلم العميق. لقد أظهرت مهارات القيادة ورواية القصص والعرض من خلال قيادة مبادرات ومشاريع المجتمع.",
-      paragraph3: "اشتعلت شغفي بعلوم البيانات خلال سنوات الجامعة، حيث اكتشفت قوة استخراج أنماط ذات معنى من مجموعات البيانات المعقدة. أتناول كل مشروع بفضول وتحليل منهجي، سعياً لتقديم حلول توفر قيمة عملية ملموسة.",
+        "تعزيز الكفاءة التشغيلية من خلال تقليل المهام اليدوية في Excel في الاتحاد الآسيوي لكرة القدم. متمكن في برمجة Python وعمليات ETL. جاهز لاستثمار الخبرة التحليلية لدفع اتخاذ القرارات المستندة إلى البيانات في بيئة مليئة بالتحديات.",
+      paragraph3: "",
       sectionHeadings: {
         journey: "مسيرتي",
         careerHighlights: "أبرز الإنجازات المهنية",
@@ -664,17 +664,17 @@ export const translations: Translations = {
         {
           id: "education",
           title: "التميز الأكاديمي",
-          description: "تخرجت بتفوق في علوم الكمبيوتر متخصصاً في علوم البيانات، مع التركيز على تقنيات التعلم الآلي والتحليل الإحصائي."
+          description: "تخرجت بدرجة البكالوريوس في علوم الكمبيوتر متخصصاً في علوم البيانات من جامعة الوسائط المتعددة، مع التركيز على تقنيات التعلم الآلي والتحليل الإحصائي."
         },
         {
           id: "internship",
           title: "مشروع بيانات الاتحاد الآسيوي",
-          description: "طورت لوحة معلومات شاملة لتحليلات الرياضة للاتحاد الآسيوي لكرة القدم حولت بيانات المباريات الخام إلى رؤى قابلة للتنفيذ."
+          description: "طورت لوحة معلومات تحليلات المباريات في Power BI بدمج واجهتي برمجة تطبيقات لكرة القدم؛ صممت عمليات ETL وهيكلت أربعة جداول علائقية، مما أدى إلى اعتماد المستخدمين خلال فترة التدريب."
         },
         {
           id: "skills",
           title: "الكفاءة التقنية",
-          description: "أتقنت مجموعة متنوعة من التقنيات بما في ذلك Python و R و TensorFlow وأدوات تصور البيانات مع توسيع المعرفة باستمرار في مجالات الذكاء الاصطناعي الناشئة."
+          description: "أتقنت مجموعة متنوعة من التقنيات بما في ذلك Python و PyTorch و TensorFlow و scikit-learn و pandas و NumPy وأدوات تصور البيانات مع توسيع المعرفة باستمرار في مجالات الذكاء الاصطناعي الناشئة."
         }
       ],
       careerGoals: [
@@ -980,22 +980,22 @@ export const translations: Translations = {
           "تنفيذ لوحة معلومات تفاعلية في Power BI للاتحاد الآسيوي لكرة القدم (AFC) لتحليل إحصائيات مباريات كرة القدم وأداء اللاعبين ومقاييس الفريق. يجمع الحل البيانات من نقاط نهاية API متعددة، ويحولها ويصورها في تقارير ديناميكية سهلة الاستخدام.",
         dashboardLink: "https://app.powerbi.com/view?r=eyJrIjoiOTBkZTJmYTgtYzNlOC00YmY0LWJmN2ItNjY2ODU0NzM4MDQyIiwidCI6IjdlMGI1ZmNmLTEyYzQtNGVmZi05NmI2LTQ2NjRmMjVkYzdkYSIsImMiOjEwfQ%3D%3D",
         challenges: {
-          1: "Multiple Data Sources & Formats: Needed to integrate and transform data from different API endpoints (Fixtures, Players) with varying structures.",
-          2: "Manual Refresh Process: Required a secure, manual refresh approach due to network constraints and API access limitations.",
-          3: "Security Constraints: Dashboard needed to be publicly accessible, yet the underlying data source had to remain protected within the organization's network.",
-          4: "Data Consistency & Accuracy: Ensuring that team, player, and match information remained synchronized across various tables and pages.",
+          1: "مصادر وتنسيقات بيانات متعددة: الحاجة إلى دمج وتحويل البيانات من نقاط نهاية API مختلفة (المباريات، اللاعبين) بهياكل متنوعة.",
+          2: "عملية تحديث يدوية: تطلب نهج تحديث آمن ويدوي بسبب قيود الشبكة وقيود الوصول إلى API.",
+          3: "قيود الأمان: كانت لوحة المعلومات بحاجة إلى أن تكون متاحة للجمهور، ولكن يجب أن يظل مصدر البيانات الأساسي محميًا داخل شبكة المنظمة.",
+          4: "اتساق ودقة البيانات: ضمان بقاء معلومات الفريق واللاعب والمباراة متزامنة عبر مختلف الجداول والصفحات.",
         },
         solutions: {
-          1: "Robust ETL & Data Modeling: Created a well-defined schema and used Power Query to clean, transform, and unify match/players data into structured tables (Fixtures, Teams, Opponents, Players).",
-          2: "Interactive Visualizations: Built dedicated pages (Results, Goals, Positions, Teams Map, Players Map, Tables) with custom filters (Matches, Teams, Players) for granular data exploration.",
-          3: "Security & Access Control: Deployed a public dashboard link while restricting API/data source access to the internal network, striking a balance between openness and security.",
-          4: "Documentation & Maintenance Plan: Provided clear project documentation, including data schemas, transformation steps, and a manual refresh procedure to maintain data integrity.",
+          1: "ETL قوي ونمذجة البيانات: إنشاء مخطط محدد جيدًا واستخدام Power Query لتنظيف وتحويل وتوحيد بيانات المباراة/اللاعبين في جداول منظمة (المباريات، الفرق، الخصوم، اللاعبين).",
+          2: "التصورات التفاعلية: بناء صفحات مخصصة (النتائج، الأهداف، المراكز، خريطة الفرق، خريطة اللاعبين، الجداول) مع مرشحات مخصصة (المباريات، الفرق، اللاعبين) لاستكشاف البيانات بشكل تفصيلي.",
+          3: "الأمان والتحكم في الوصول: نشر رابط لوحة المعلومات العامة مع تقييد الوصول إلى API/مصدر البيانات إلى الشبكة الداخلية، وتحقيق التوازن بين الانفتاح والأمان.",
+          4: "خطة التوثيق والصيانة: توفير وثائق مشروع واضحة، بما في ذلك مخططات البيانات وخطوات التحويل وإجراء التحديث اليدوي للحفاظ على سلامة البيانات.",
         },
         results: {
-          1: "Enhanced Decision-Making: AFC stakeholders can easily explore performance trends, player statistics, and match outcomes, leading to more informed strategic decisions.",
-          2: "Improved Data Accessibility: The dashboard centralizes key metrics and allows for quick, intuitive filtering and analysis across teams, tournaments, and timeframes.",
-          3: "Scalable Foundation: The modular data model and clear documentation enable future expansions (e.g., automated refresh with a data gateway, adding more competitions).",
-          4: "Positive Stakeholder Feedback: The dashboard's user-friendly interface and comprehensive coverage of AFC data garnered strong acceptance among non-technical and technical users alike.",
+          1: "تعزيز اتخاذ القرار: يمكن لأصحاب المصلحة في الاتحاد الآسيوي لكرة القدم استكشاف اتجاهات الأداء وإحصائيات اللاعبين ونتائج المباريات بسهولة، مما يؤدي إلى قرارات استراتيجية أكثر استنارة.",
+          2: "تحسين الوصول إلى البيانات: تقوم لوحة المعلومات بتمركز المقاييس الرئيسية وتسمح بالتصفية والتحليل السريع والبديهي عبر الفرق والبطولات والأطر الزمنية.",
+          3: "أساس قابل للتوسع: النموذج النمطي للبيانات والتوثيق الواضح يتيح التوسعات المستقبلية (مثل التحديث التلقائي مع بوابة البيانات، وإضافة المزيد من المنافسات).",
+          4: "تعليقات إيجابية من أصحاب المصلحة: حازت واجهة لوحة المعلومات سهلة الاستخدام والتغطية الشاملة لبيانات الاتحاد الآسيوي لكرة القدم على قبول قوي بين المستخدمين غير التقنيين والتقنيين على حد سواء.",
         },
       },
 
@@ -1205,5 +1205,5 @@ export const translations: Translations = {
       ar: "العربية",
     },
   },
-}
+};
 
