@@ -30,8 +30,6 @@ const toolsAndFrameworks = [
   { name: "PyTorch", percentage: 85, color: "bg-red-500" },
   { name: "Scikit-Learn", percentage: 95, color: "bg-green-500" },
   { name: "Pandas", percentage: 95, color: "bg-blue-500" },
-  { name: "Spark", percentage: 80, color: "bg-yellow-500" },
-  { name: "Docker", percentage: 75, color: "bg-cyan-500" },
 ]
 
 export default function SkillsGrid() {

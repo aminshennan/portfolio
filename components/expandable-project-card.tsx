@@ -253,20 +253,6 @@ export default function ExpandableProjectCard({
             ))}
           </div>
           
-          {/* Key Metrics Visualization */}
-          {metrics.length > 0 && (
-            <div className="grid grid-cols-3 gap-2 my-4 p-3 bg-muted/20 rounded-lg border border-border">
-              {metrics.map((metric, i) => (
-                <div key={i} className="flex flex-col items-center text-center">
-                  <div className="text-2xl font-bold text-primary">
-                    {metric.action === 'reduced' ? '-' : ''}
-                    {metric.value}{metric.unit}
-                  </div>
-                  <div className="text-xs text-muted-foreground">{metric.label}</div>
-                </div>
-              ))}
-            </div>
-          )}
 
           {(detailedDescription || challenges || solutions || results) && (
             <Button
