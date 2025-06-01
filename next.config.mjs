@@ -4,7 +4,6 @@
  * This file configures various aspects of the Next.js application including:
  * - Image optimization settings
  * - Performance optimizations
- * - Security headers
  * - Build and runtime optimizations
  * - Export configuration for static deployment
  */
@@ -34,8 +33,6 @@ const nextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     // Fixed image sizes for optimization
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    // Allowed domains for external images
-    domains: ['your-portfolio-url.com'],
     // Remote image patterns for enhanced security
     remotePatterns: [
       {
@@ -51,10 +48,36 @@ const nextConfig = {
   
   // Experimental features for enhanced performance
   experimental: {
-    // Optimize CSS bundle size
-    optimizeCss: true,
     // Optimize specific package imports to reduce bundle size
-    optimizePackageImports: ['lucide-react', 'framer-motion', '@radix-ui/react-*'],
+    optimizePackageImports: [
+      'lucide-react',
+      '@radix-ui/react-alert-dialog',
+      '@radix-ui/react-aspect-ratio',
+      '@radix-ui/react-avatar',
+      '@radix-ui/react-checkbox',
+      '@radix-ui/react-collapsible',
+      '@radix-ui/react-context-menu',
+      '@radix-ui/react-dialog',
+      '@radix-ui/react-dropdown-menu',
+      '@radix-ui/react-hover-card',
+      '@radix-ui/react-label',
+      '@radix-ui/react-menubar',
+      '@radix-ui/react-navigation-menu',
+      '@radix-ui/react-popover',
+      '@radix-ui/react-progress',
+      '@radix-ui/react-radio-group',
+      '@radix-ui/react-scroll-area',
+      '@radix-ui/react-select',
+      '@radix-ui/react-separator',
+      '@radix-ui/react-slider',
+      '@radix-ui/react-slot',
+      '@radix-ui/react-switch',
+      '@radix-ui/react-tabs',
+      '@radix-ui/react-toast',
+      '@radix-ui/react-toggle',
+      '@radix-ui/react-toggle-group',
+      '@radix-ui/react-tooltip'
+    ],
     // Track Core Web Vitals for performance monitoring
     webVitalsAttribution: ['CLS', 'LCP'],
   },
@@ -79,41 +102,7 @@ const nextConfig = {
   // Configure URL trailing slash behavior
   trailingSlash: false,
   
-  // Security headers configuration
-  headers: async () => {
-    return [
-      {
-        // Apply security headers to all routes
-        source: '/(.*)',
-        headers: [
-          {
-            // Prevent MIME type sniffing
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            // Prevent embedding in frames (clickjacking protection)
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-          {
-            // Enable XSS protection in browsers
-            key: 'X-XSS-Protection',
-            value: '1; mode=block',
-          },
-        ],
-      },
-    ]
-  },
-  
-  // Script to run before React hydration to remove Grammarly attributes
-  // This prevents hydration errors caused by browser extensions
-  scripts: [
-    {
-      src: '/scripts/fix-hydration.js',
-      strategy: 'beforeInteractive',
-    },
-  ],
+  // Security headers are removed as they don't work with static export
 }
 
 // Merge user configuration if available

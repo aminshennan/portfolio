@@ -28,7 +28,6 @@
 "use client"
 
 import type React from "react"
-import { Suspense, lazy } from "react"
 import dynamic from 'next/dynamic'
 import Link from "next/link"
 import { motion } from "framer-motion"
@@ -36,7 +35,6 @@ import { Brain } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 import ErrorBoundary from "@/components/error-boundary"
 import SmoothScroll from "@/components/smooth-scroll"
-import { useTheme } from "@/components/ui/use-theme"
 import PageTransition from "@/components/page-transition"
 import MobileMenu from "@/components/mobile-menu"
 import CookieConsent from "@/components/cookie-consent"
@@ -76,10 +74,6 @@ const LanguageSwitcher = dynamic(() => import('@/components/language-switcher'),
 export default function Home() {
   // Get translation function and text direction from language context
   const { t, dir } = useLanguage()
-
-  // Dynamic content for hero section
-  const defaultTitle = t("hero.title")
-  const defaultRole = t("hero.subtitle") // Assuming subtitle is the main role displayed
 
   return (
     <>

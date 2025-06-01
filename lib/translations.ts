@@ -234,7 +234,7 @@ export const translations: Translations = {
             "Positive Stakeholder Feedback: The dashboard's user-friendly interface and comprehensive coverage of AFC data garnered strong acceptance among non-technical and technical users alike."
           ],
           liveUrl: "https://app.powerbi.com/view?r=eyJrIjoiOTBkZTJmYTgtYzNlOC00YmY0LWJmN2ItNjY2ODU0NzM4MDQyIiwidCI6IjdlMGI1ZmNmLTEyYzQtNGVmZi05NmI2LTQ2NjRmMjVkYzdkYSIsImMiOjEwfQ%3D%3D",
-          image: "https://img.freepik.com/free-vector/sports-analytics-dashboard-concept-illustration_114360-10679.jpg",
+          image: "/images/projects/Asian_Football_Confederation.svg",
           featured: true
         },
         {
@@ -260,7 +260,7 @@ export const translations: Translations = {
             "Created intuitive demo for non-technical users"
           ],
           githubUrl: "https://github.com/aminshennan/Forgery_Detection_with_ViT_and_RestNet",
-          image: "https://img.freepik.com/free-vector/artificial-intelligence-concept-illustration_114360-1281.jpg"
+          image: "/images/projects/forgery-detection.jpg"
         },
         {
           id: "scientific-paper-summarizer",
@@ -285,7 +285,7 @@ export const translations: Translations = {
             "Created intuitive interface for non-technical users"
           ],
           githubUrl: "https://github.com/aminshennan/Scientific-Paper-Summarization-via-LoRA-Tuned-FLAN-T5-XXL-",
-          image: "https://img.freepik.com/free-vector/natural-language-processing-abstract-concept-illustration_335657-3875.jpg"
+          image: "/images/projects/Scientific Paper Summarization.jpg"
         },
         {
           id: "intelligent-parking",
@@ -310,7 +310,7 @@ export const translations: Translations = {
             "Improved parking utilization by 30%"
           ],
           githubUrl: "https://github.com/aminshennan/Car-Parking-System",
-          image: "https://img.freepik.com/free-vector/smart-parking-abstract-concept-illustration_335657-3826.jpg"
+          image: "/images/projects/intelligent-parking.jpg"
         },
         {
           id: "sentiment-analysis",
@@ -335,7 +335,7 @@ export const translations: Translations = {
             "Extracted actionable insights from customer feedback"
           ],
           githubUrl: "https://github.com/aminshennan/Sentiment-Analysis-of-Women-s-Clothing-E-Commerce-Reviews-Using-Machine-Learning",
-          image: "https://img.freepik.com/free-vector/feedback-concept-illustration_114360-4896.jpg"
+          image: "/images/projects/sentiment-analysis.jpg"
         },
         {
           id: "sign-language",
@@ -360,7 +360,7 @@ export const translations: Translations = {
             "Reduced communication barriers for Arabic sign language users"
           ],
           githubUrl: "https://github.com/aminshennan/Hand-Sign-language-detection",
-          image: "https://img.freepik.com/free-vector/sign-language-concept-illustration_114360-7322.jpg"
+          image: "/images/projects/Arabic Sign Language Recognition System.jpg"
         },
         {
           id: "portfolio-site",
@@ -385,7 +385,7 @@ export const translations: Translations = {
             "Improved visibility in search engine results"
           ],
           githubUrl: "https://github.com/aminshennan/portfolio",
-          image: "https://img.freepik.com/free-vector/gradient-ui-ux-background_23-2149052117.jpg"
+          image: "/images/projects/portfolio-site.jpg"
         },
         {
           id: "marital-satisfaction",
@@ -410,90 +410,10 @@ export const translations: Translations = {
             "Created visualizations for non-technical stakeholders"
           ],
           githubUrl: "https://github.com/aminshennan/Marital-Satisfaction-Analysis",
-          image: "https://img.freepik.com/free-vector/big-data-analytics-abstract-concept-illustration_335657-4810.jpg"
+          image: "/images/projects/Marital-Satisfaction Data Mining.jpg"
         }
       ],
 
-      // Project details
-      sportsAnalytics: {
-        description:
-          "Comprehensive sports analytics dashboard for football match analysis and player performance tracking.",
-        detailedDescription:
-          "Implemented an interactive Power BI dashboard for the Asian Football Confederation (AFC) to analyze football match statistics, player performance, and team metrics. The solution aggregates data from multiple API endpoints, transforming and visualizing it in user-friendly, dynamic reports.",
-        dashboardLink: "https://app.powerbi.com/view?r=eyJrIjoiOTBkZTJmYTgtYzNlOC00YmY0LWJmN2ItNjY2ODU0NzM4MDQyIiwidCI6IjdlMGI1ZmNmLTEyYzQtNGVmZi05NmI2LTQ2NjRmMjVkYzdkYSIsImMiOjEwfQ%3D%3D",
-        challenges: {
-          1: "Multiple Data Sources & Formats: Needed to integrate and transform data from different API endpoints (Fixtures, Players) with varying structures.",
-          2: "Manual Refresh Process: Required a secure, manual refresh approach due to network constraints and API access limitations.",
-          3: "Security Constraints: Dashboard needed to be publicly accessible, yet the underlying data source had to remain protected within the organization's network.",
-          4: "Data Consistency & Accuracy: Ensuring that team, player, and match information remained synchronized across various tables and pages.",
-        },
-        solutions: {
-          1: "Robust ETL & Data Modeling: Created a well-defined schema and used Power Query to clean, transform, and unify match/players data into structured tables (Fixtures, Teams, Opponents, Players).",
-          2: "Interactive Visualizations: Built dedicated pages (Results, Goals, Positions, Teams Map, Players Map, Tables) with custom filters (Matches, Teams, Players) for granular data exploration.",
-          3: "Security & Access Control: Deployed a public dashboard link while restricting API/data source access to the internal network, striking a balance between openness and security.",
-          4: "Documentation & Maintenance Plan: Provided clear project documentation, including data schemas, transformation steps, and a manual refresh procedure to maintain data integrity.",
-        },
-        results: {
-          1: "Enhanced Decision-Making: AFC stakeholders can easily explore performance trends, player statistics, and match outcomes, leading to more informed strategic decisions.",
-          2: "Improved Data Accessibility: The dashboard centralizes key metrics and allows for quick, intuitive filtering and analysis across teams, tournaments, and timeframes.",
-          3: "Scalable Foundation: The modular data model and clear documentation enable future expansions (e.g., automated refresh with a data gateway, adding more competitions).",
-          4: "Positive Stakeholder Feedback: The dashboard's user-friendly interface and comprehensive coverage of AFC data garnered strong acceptance among non-technical and technical users alike.",
-        },
-      },
-
-      financialReporting: {
-        description: "Automated financial reporting system using Python and Microsoft Fabric for streamlined data processing.",
-        detailedDescription:
-          "Built an end-to-end automation solution for financial reporting that extracts data from multiple sources, processes it, and generates standardized reports.",
-        challenges: {
-          1: "Manual reporting process was time-consuming and error-prone",
-          2: "Data needed to be validated and transformed before reporting",
-        },
-        solutions: {
-          1: "Implemented Python scripts to automate data extraction and transformation",
-          2: "Used Microsoft Fabric for workflow orchestration and scheduling"
-        },
-        results: {
-          1: "Reduced reporting time from 2 days to 2 hours",
-          2: "Eliminated manual errors and improved data accuracy"
-        },
-      },
-
-      customerSegmentation: {
-        description: "Machine learning model for customer segmentation to identify distinct customer groups for targeted marketing.",
-        detailedDescription:
-          "Developed a clustering model to segment customers based on purchasing behavior, demographics, and engagement metrics.",
-        challenges: {
-          1: "Identifying the optimal number of customer segments",
-          2: "Dealing with missing data and outliers in the customer dataset"
-        },
-        solutions: {
-          1: "Used silhouette analysis and elbow method to determine optimal cluster count",
-          2: "Implemented robust preprocessing techniques to handle missing values and outliers"
-        },
-        results: {
-          1: "Identified 5 distinct customer segments with unique characteristics",
-          2: "Targeted marketing campaigns resulted in 25% higher conversion rates"
-        },
-      },
-
-      sentimentAnalysis: {
-        description: "NLP-based sentiment analysis tool for analyzing customer feedback and social media mentions.",
-        detailedDescription:
-          "Created a sentiment analysis system that processes customer reviews and social media posts to determine sentiment and extract key themes.",
-        challenges: {
-          1: "Handling context-specific language and sarcasm in text data",
-          2: "Processing large volumes of unstructured text efficiently"
-        },
-        solutions: {
-          1: "Implemented a hybrid approach combining lexicon-based and machine learning methods",
-          2: "Used parallel processing to handle large datasets efficiently"
-        },
-        results: {
-          1: "Achieved 85% accuracy in sentiment classification",
-          2: "Identified key customer pain points that informed product improvements"
-        },
-      },
     },
 
     // Experience section
@@ -841,16 +761,16 @@ export const translations: Translations = {
             "ETL قوي ونمذجة البيانات: إنشاء مخطط محدد جيدًا واستخدام Power Query لتنظيف وتحويل وتوحيد بيانات المباراة/اللاعبين في جداول منظمة (المباريات، الفرق، الخصوم، اللاعبين).",
             "التصورات التفاعلية: بناء صفحات مخصصة (النتائج، الأهداف، المراكز، خريطة الفرق، خريطة اللاعبين، الجداول) مع مرشحات مخصصة (المباريات، الفرق، اللاعبين) لاستكشاف البيانات بشكل تفصيلي.",
             "الأمان والتحكم في الوصول: نشر رابط لوحة المعلومات العامة مع تقييد الوصول إلى API/مصدر البيانات إلى الشبكة الداخلية، وتحقيق التوازن بين الانفتاح والأمان.",
-            "خطة التوثيق والصيانة: توفير وثائق مشروع واضحة، بما في ذلك مخططات البيانات وخطوات التحويل وإجراء التحديث اليدوي للحفاظ على سلامة البيانات."
+            "خطة التوثيق والصيانة: توفير وثائق مشروع واضحة، بما في ذلك مخططات البيانات وخطوات التحويل وإجراء التحديث اليدوي للحفاظ على سلامة البيانات.",
           ],
           results: [
             "تعزيز اتخاذ القرار: يمكن لأصحاب المصلحة في الاتحاد الآسيوي لكرة القدم استكشاف اتجاهات الأداء وإحصائيات اللاعبين ونتائج المباريات بسهولة، مما يؤدي إلى قرارات استراتيجية أكثر استنارة.",
             "تحسين الوصول إلى البيانات: تقوم لوحة المعلومات بتمركز المقاييس الرئيسية وتسمح بالتصفية والتحليل السريع والبديهي عبر الفرق والبطولات والأطر الزمنية.",
             "أساس قابل للتوسع: النموذج النمطي للبيانات والتوثيق الواضح يتيح التوسعات المستقبلية (مثل التحديث التلقائي مع بوابة البيانات، وإضافة المزيد من المنافسات).",
-            "تعليقات إيجابية من أصحاب المصلحة: حازت واجهة لوحة المعلومات سهلة الاستخدام والتغطية الشاملة لبيانات الاتحاد الآسيوي لكرة القدم على قبول قوي بين المستخدمين غير التقنيين والتقنيين على حد سواء."
+            "تعليقات إيجابية من أصحاب المصلحة: حازت واجهة لوحة المعلومات سهلة الاستخدام والتغطية الشاملة لبيانات الاتحاد الآسيوي لكرة القدم على قبول قوي بين المستخدمين غير التقنيين والتقنيين على حد سواء.",
           ],
           liveUrl: "https://app.powerbi.com/view?r=eyJrIjoiOTBkZTJmYTgtYzNlOC00YmY0LWJmN2ItNjY2ODU0NzM4MDQyIiwidCI6IjdlMGI1ZmNmLTEyYzQtNGVmZi05NmI2LTQ2NjRmMjVkYzdkYSIsImMiOjEwfQ%3D%3D",
-          image: "/Visual data-bro.png",
+          image: "/images/projects/Asian_Football_Confederation.svg",
           featured: true
         },
         {
@@ -876,7 +796,7 @@ export const translations: Translations = {
             "إنشاء عرض توضيحي بديهي للمستخدمين غير التقنيين"
           ],
           githubUrl: "https://github.com/aminshennan/Forgery_Detection_with_ViT_and_RestNet",
-          image: "/ai-detection.png"
+          image: "/images/projects/forgery-detection.jpg"
         },
         {
           id: "scientific-paper-summarizer",
@@ -901,7 +821,7 @@ export const translations: Translations = {
             "إنشاء واجهة بديهية للمستخدمين غير التقنيين"
           ],
           githubUrl: "https://github.com/aminshennan/Scientific-Paper-Summarization-via-LoRA-Tuned-FLAN-T5-XXL-",
-          image: "/nlp-summarization.png"
+          image: "/images/projects/Scientific Paper Summarization.jpg"
         },
         {
           id: "intelligent-parking",
@@ -926,7 +846,7 @@ export const translations: Translations = {
             "تحسين استخدام مواقف السيارات بنسبة 30%"
           ],
           githubUrl: "https://github.com/aminshennan/Car-Parking-System",
-          image: "/parking-system.png"
+          image: "/images/projects/intelligent-parking.jpg"
         },
         {
           id: "sentiment-analysis",
@@ -951,7 +871,7 @@ export const translations: Translations = {
             "إستخراج الإفادات المفعلة من ملاحظات العميل"
           ],
           githubUrl: "https://github.com/aminshennan/Sentiment-Analysis-of-Women-s-Clothing-E-Commerce-Reviews-Using-Machine-Learning",
-          image: "/sentiment-analysis.png"
+          image: "/images/projects/sentiment-analysis.jpg"
         },
         {
           id: "sign-language",
@@ -976,7 +896,7 @@ export const translations: Translations = {
             "تقليل حواجز التواصل للغة الإشارية العربية"
           ],
           githubUrl: "https://github.com/aminshennan/Hand-Sign-language-detection",
-          image: "/sign-language.png"
+          image: "/images/projects/Arabic Sign Language Recognition System.jpg"
         },
         {
           id: "portfolio-site",
@@ -1001,7 +921,7 @@ export const translations: Translations = {
             "تحسين المرونة في نتائج البحث"
           ],
           githubUrl: "https://github.com/aminshennan/portfolio",
-          image: "/portfolio-site.png"
+          image: "/images/projects/portfolio-site.jpg"
         },
         {
           id: "marital-satisfaction",
@@ -1026,7 +946,7 @@ export const translations: Translations = {
             "إنشاء الرسوم البيانية للمستخدمين غير التقنيين"
           ],
           githubUrl: "https://github.com/aminshennan/Marital-Satisfaction-Analysis",
-          image: "/data-mining.png"
+          image: "/images/projects/Marital-Satisfaction Data Mining.jpg"
         }
       ],
 

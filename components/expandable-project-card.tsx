@@ -188,11 +188,11 @@ export default function ExpandableProjectCard({
     if (!image) return null;
     
     return (
-      <div className="relative overflow-hidden h-52 group">
+      <div className="relative overflow-hidden h-48 group">
         <img
           src={image || "/placeholder.svg"}
           alt={title}
-          className={`w-full h-full ${image.includes('Asian_Football_Confederation_(logo).svg') ? 'object-contain p-4 bg-white' : 'object-contain'} transition-transform duration-700 group-hover:scale-110`}
+          className={`w-full h-full ${image.includes('Asian_Football_Confederation.svg') ? 'object-contain p-4 bg-black' : 'object-cover'} transition-transform duration-700 group-hover:scale-110`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>

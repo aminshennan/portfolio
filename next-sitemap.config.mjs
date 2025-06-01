@@ -1,5 +1,5 @@
 /** @type {import('next-sitemap').IConfig} */
-module.exports = {
+const config = {
   siteUrl: process.env.SITE_URL || 'https://your-portfolio-url.com',
   generateRobotsTxt: false, // We already have a custom robots.txt
   exclude: ['/api/*', '/404', '/500'],
@@ -13,4 +13,6 @@ module.exports = {
       },
     ],
   },
-} 
+}
+
+export default config; 

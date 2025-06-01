@@ -25,38 +25,19 @@
 import React, { Suspense, lazy } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Mail, Download, Code, Briefcase, BookOpen, Award } from 'lucide-react';
+import { Mail, Download } from 'lucide-react';
 import { useLanguage } from '@/contexts/language-context';
 import GlowingButton from '@/components/glowing-button';
-import EnhancedCard from '@/components/enhanced-card';
-import dynamic from 'next/dynamic';
-import { Section } from '@/components/section'; // Assuming Section component is refactored
+import { Section } from '@/components/section';
 
-// Dynamic imports from original page.tsx
-const AnimatedText = dynamic(() => import('@/components/animated-text'), {
-  loading: () => <div className="h-6 w-48 bg-muted/20 rounded animate-pulse" />
-});
-const HeroParticles = lazy(() => import("@/components/hero-particles"));
+// Dynamic imports for lazy-loaded components
 const FloatingIcons = lazy(() => import("@/components/floating-icons"));
-const ECardContent = dynamic(() => import('@/components/enhanced-card').then(mod => mod.CardContent))
 
-// Animation variants (if needed specifically here, otherwise keep in a shared file)
+// Animation variants
 const fadeIn = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
-
-/**
- * Generate statistics data for the hero section
- * @param t - Translation function from language context
- * @returns Array of statistic objects with icons, values, and styling
- */
-const getStats = (t: Function) => [
-  { icon: Code, value: '7+', label: t('hero.stats.languages'), color: 'text-cyan-400', bgColor: 'from-cyan-900/20 to-cyan-800/10' },
-  { icon: Briefcase, value: '2', label: t('hero.stats.internships'), color: 'text-pink-500', bgColor: 'from-pink-900/20 to-pink-800/10' },
-  { icon: BookOpen, value: '6+', label: t('hero.stats.projects'), color: 'text-purple-500', bgColor: 'from-purple-900/20 to-purple-800/10' },
-  { icon: Award, value: '2+', label: t('hero.stats.leadership'), color: 'text-yellow-500', bgColor: 'from-yellow-900/20 to-yellow-800/10' },
-];
 
 /**
  * Hero Section Component
@@ -68,10 +49,8 @@ export const HeroSection = () => {
   const { t, dir } = useLanguage();
 
   // Performance control flags - can be used to conditionally disable heavy animations
-  const showParticles = true; // Set to false to improve performance on low-end devices
-  const showFloatingIcons = true; // Set to false to reduce animation complexity
-
-  const stats = getStats(t);
+  const showParticles = false; // Disabled to improve performance
+  const showFloatingIcons = false; // Disabled to reduce animation complexity
 
   return (
     <Section id="hero" className="w-full py-12 md:py-24 lg:py-32 xl:py-48 section-background overflow-hidden">
@@ -79,7 +58,7 @@ export const HeroSection = () => {
       {showParticles && (
         <div className="absolute inset-0 z-0">
           <Suspense fallback={<div className="absolute inset-0 bg-gradient-to-b from-background to-background/80" />}>
-            <HeroParticles />
+            
           </Suspense>
         </div>
       )}
@@ -107,23 +86,18 @@ export const HeroSection = () => {
               transition={{ duration: 0.8 }}
               className="mb-4"
             >
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 drop-shadow-[0_0_15px_rgba(14,165,233,0.3)]">
+              <h1 className="text-4xl font-bold tracking-tighter sm:text-6xl md:text-6xl lg:text-7xl/none text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 drop-shadow-[0_0_15px_rgba(14,165,233,0.3)]">
                 {t("hero.title")}
               </h1>
             </motion.div>
 
-            {/* Animated subtitle */}
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none gradient-text">
-              <AnimatedText text={t('hero.subtitle')} className="inline-flex" />
-            </h2>
+  
             
             {/* Secondary subtitle with height constraint to prevent layout shift */}
             <div className="h-12">
-              <AnimatedText
-                text={t("hero.secondarySubtitle") || "Creating data-driven solutions"}
-                className="mx-auto max-w-[700px] text-muted-foreground md:text-xl inline-flex"
-                once={false}
-              />
+              <p className="mx-auto max-w-[700px] text-xl md:text-2xl text-muted-foreground font-medium">
+                {t("hero.subtitle")}
+              </p>
             </div>
           </motion.div>
           

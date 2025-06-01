@@ -36,6 +36,7 @@ const notoKufiArabic = Noto_Kufi_Arabic({
 
 // SEO and social media metadata
 export const metadata: Metadata = {
+  metadataBase: new URL("https://aminshennan.vercel.app"),
   title: {
     default: "Amin Shennan - Data Scientist Portfolio",
     template: "%s | Amin Shennan",
@@ -54,6 +55,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Amin Shennan" }],
   creator: "Amin Shennan",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -75,7 +79,7 @@ export const metadata: Metadata = {
     title: "Amin Shennan - Data Scientist Portfolio",
     description: "Professional portfolio showcasing data science expertise and machine learning projects.",
     images: ["/amin_no_background.png"],
-    creator: "@aminshennan", // Replace with actual Twitter handle
+    creator: "@aminshennan",
   },
   robots: {
     index: true,
@@ -89,7 +93,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code", // Replace with actual verification code
+    google: "googlef35ab39ee7fbaeec",
   },
 }
 
@@ -139,7 +143,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           strategy="beforeInteractive" 
         />
       </head>
-      <body className="min-h-screen bg-background font-sans antialiased">
+      <body suppressHydrationWarning className="min-h-screen bg-background font-sans antialiased">
         <ErrorBoundary>
           {/* Theme provider for dark/light mode functionality */}
           <ThemeProvider
