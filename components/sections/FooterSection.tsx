@@ -63,7 +63,6 @@ export const FooterSection = () => {
             </div>
             <p className="text-muted-foreground mb-4 text-sm">{t("footer.description")}</p>
             <div className={`flex items-center ${dir === "rtl" ? "space-x-reverse" : ""} space-x-4`}>
-              {/* TODO: Add actual Twitter URL in translations.ts */}
               {socialLinks.twitter && socialLinks.twitter !== '#' && <FooterSocialLink href={socialLinks.twitter} icon={Twitter} />}
               {socialLinks.github && <FooterSocialLink href={socialLinks.github} icon={Github} />}
               {socialLinks.linkedin && <FooterSocialLink href={socialLinks.linkedin} icon={Linkedin} />}
@@ -88,8 +87,12 @@ export const FooterSection = () => {
                 <div key={index} className="glass-effect p-3 sm:p-4 rounded-lg border border-border/20">
                   <p className="text-foreground font-medium text-sm sm:text-base">{ref.name}</p>
                   <p className="text-muted-foreground text-xs sm:text-sm">{ref.title}</p>
-                  {/* TODO: Consider making contact info clickable (mailto: or tel:) if appropriate and permission granted */}
-                  <p className="text-primary text-xs sm:text-sm break-words">{ref.contact}</p>
+                  <a 
+                    href={`mailto:${ref.contact}`}
+                    className="text-primary text-xs sm:text-sm break-words hover:text-primary/80 transition-colors"
+                  >
+                    {ref.contact}
+                  </a>
                 </div>
               ))}
             </div>

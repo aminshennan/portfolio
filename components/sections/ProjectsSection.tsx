@@ -101,7 +101,6 @@ export const ProjectsSection = () => {
                 liveUrl={featuredProject.liveUrl}
                 githubUrl={featuredProject.githubUrl}
                 image={featuredProject.image}
-                // TODO: Add reminder/check for placeholder image/links for featured project
               />
             </motion.div>
           )}
@@ -122,7 +121,6 @@ export const ProjectsSection = () => {
                   githubUrl={project.githubUrl}
                   liveUrl={project.liveUrl}
                   image={project.image}
-                  // TODO: Add reminder/check for placeholder images/links here too
                 />
               </motion.div>
             ))}

@@ -1,10 +1,10 @@
 /** @type {import('next-sitemap').IConfig} */
-const config = {
-  siteUrl: process.env.SITE_URL || 'https://your-portfolio-url.com',
-  generateRobotsTxt: false, // We already have a custom robots.txt
+module.exports = {
+  siteUrl: process.env.SITE_URL || 'https://aminshennan.vercel.app',
+  generateRobotsTxt: true,
   exclude: ['/api/*', '/404', '/500'],
   generateIndexSitemap: false,
-  outDir: 'out',
+  outDir: './out',
   robotsTxtOptions: {
     policies: [
       {
@@ -12,7 +12,8 @@ const config = {
         allow: '/',
       },
     ],
+    additionalSitemaps: [
+      'https://aminshennan.vercel.app/sitemap.xml',
+    ],
   },
-}
-
-export default config; 
+} 
