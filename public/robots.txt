@@ -1,6 +1,17 @@
-# Allow all crawlers
+# Allow all crawlers to access the site
 User-agent: *
 Allow: /
 
+# Disallow API routes and error pages
+Disallow: /api/
+Disallow: /404
+Disallow: /500
+
+# Host (for better SEO)
+Host: https://aminshennan.vercel.app
+
 # Sitemap location
-Sitemap: https://your-portfolio-url.com/sitemap.xml 
+Sitemap: https://aminshennan.vercel.app/sitemap.xml
+
+# Crawl delay to be respectful to search engines (optional)
+Crawl-delay: 1 

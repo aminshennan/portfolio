@@ -1,4 +1,4 @@
-import { type ClassValue, clsx } from "clsx"
+import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
 export function cn(...inputs: ClassValue[]) {
@@ -81,38 +81,4 @@ export function calculateReadingTime(content: string): number {
   const wordsPerMinute = 200
   const words = content.trim().split(/\s+/).length
   return Math.ceil(words / wordsPerMinute)
-}
-
-// Utility for handling responsive values
-export function getResponsiveValue<T>(value: T | T[], screenSize: 'mobile' | 'tablet' | 'desktop'): T {
-  if (Array.isArray(value)) {
-    const index = screenSize === 'mobile' ? 0 : screenSize === 'tablet' ? 1 : 2;
-    return value[index] ?? value[value.length - 1];
-  }
-  return value;
-}
-
-// Utility for creating gradient text classes
-export function createGradientText(from: string, to: string): string {
-  return `bg-gradient-to-r ${from} ${to} bg-clip-text text-transparent`;
-}
-
-// Utility for safe JSON parsing
-export function safeJsonParse<T>(jsonString: string, fallback: T): T {
-  try {
-    return JSON.parse(jsonString);
-  } catch {
-    return fallback;
-  }
-}
-
-// Format number with commas
-export function formatNumber(num: number): string {
-  return new Intl.NumberFormat().format(num);
-}
-
-// Truncate text with ellipsis
-export function truncateText(text: string, maxLength: number): string {
-  if (text.length <= maxLength) return text;
-  return text.slice(0, maxLength).trim() + '...';
 }

@@ -1,8 +1,8 @@
 "use client"
 
-import React, { useEffect, useCallback, useState, useMemo } from "react"
+import { useEffect, useState, useCallback, useMemo } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Keyboard, X, Info } from "lucide-react"
+import { X, Keyboard, Info, ChevronRight } from "lucide-react"
 
 // Extract keyboard shortcut definition to a constants array for better maintainability
 const SECTION_SHORTCUTS = [

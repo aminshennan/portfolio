@@ -44,13 +44,28 @@ const staggerContainer = {
   },
 };
 
+// Helper function to validate project data
+const validateProjectData = (project: Project): Project => {
+  return {
+    ...project,
+    // Ensure URLs are valid or set to undefined
+    githubUrl: project.githubUrl && project.githubUrl !== '#' ? project.githubUrl : undefined,
+    liveUrl: project.liveUrl && project.liveUrl !== '#' ? project.liveUrl : undefined,
+    // Ensure image path is valid or set to undefined for fallback
+    image: project.image && project.image !== 'placeholder.jpg' ? project.image : undefined,
+  };
+};
+
 export const ProjectsSection = () => {
   const { t } = useLanguage();
 
   // Type assertion for projectList - ensure the structure in translations.ts matches
   const projectList = t('projects.projectList') as Project[] || [];
-  const featuredProject = projectList.find(p => p.featured);
-  const otherProjects = projectList.filter(p => !p.featured);
+  
+  // Validate and filter projects with proper data
+  const validatedProjects = projectList.map(validateProjectData);
+  const featuredProject = validatedProjects.find(p => p.featured);
+  const otherProjects = validatedProjects.filter(p => !p.featured);
 
   return (
     <Section id="projects" className="w-full py-12 md:py-24 lg:py-32 section-background">

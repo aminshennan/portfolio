@@ -2,7 +2,7 @@
 
 import React, { Suspense, lazy } from 'react';
 import Link from 'next/link';
-import { Brain, Twitter, Github, Linkedin } from 'lucide-react';
+import { Brain, Twitter, Github, Linkedin, Mail } from 'lucide-react';
 import { useLanguage } from '@/contexts/language-context';
 import dynamic from 'next/dynamic';
 import { Reference } from '@/lib/translations'; // Import the Reference type
@@ -31,6 +31,40 @@ const FooterSocialLink = ({ href, icon: Icon }: { href: string; icon: React.Elem
     <Icon className="h-5 w-5" />
   </Link>
 );
+
+// Helper function to determine if contact info should be clickable
+const isEmailAddress = (contact: string): boolean => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact);
+};
+
+const isPhoneNumber = (contact: string): boolean => {
+  return /^[\+]?[\d\s\-\(\)]+$/.test(contact) && contact.replace(/\D/g, '').length >= 7;
+};
+
+// Component for handling clickable contact info
+const ContactInfo = ({ contact }: { contact: string }) => {
+  if (isEmailAddress(contact)) {
+    return (
+      <Link href={`mailto:${contact}`} className="text-primary text-xs sm:text-sm break-words hover:underline">
+        <Mail className="inline h-3 w-3 mr-1" />
+        {contact}
+      </Link>
+    );
+  }
+  
+  if (isPhoneNumber(contact)) {
+    return (
+      <Link href={`tel:${contact.replace(/\s/g, '')}`} className="text-primary text-xs sm:text-sm break-words hover:underline">
+        {contact}
+      </Link>
+    );
+  }
+  
+  // For other contact info (like LinkedIn profiles), just display as text
+  return (
+    <p className="text-primary text-xs sm:text-sm break-words">{contact}</p>
+  );
+};
 
 export const FooterSection = () => {
   const { t, dir } = useLanguage();
@@ -63,9 +97,10 @@ export const FooterSection = () => {
             </div>
             <p className="text-muted-foreground mb-4 text-sm">{t("footer.description")}</p>
             <div className={`flex items-center ${dir === "rtl" ? "space-x-reverse" : ""} space-x-4`}>
+              {/* Social links with proper validation */}
               {socialLinks.twitter && socialLinks.twitter !== '#' && <FooterSocialLink href={socialLinks.twitter} icon={Twitter} />}
-              {socialLinks.github && <FooterSocialLink href={socialLinks.github} icon={Github} />}
-              {socialLinks.linkedin && <FooterSocialLink href={socialLinks.linkedin} icon={Linkedin} />}
+              {socialLinks.github && socialLinks.github !== '#' && <FooterSocialLink href={socialLinks.github} icon={Github} />}
+              {socialLinks.linkedin && socialLinks.linkedin !== '#' && <FooterSocialLink href={socialLinks.linkedin} icon={Linkedin} />}
             </div>
           </div>
 
@@ -87,12 +122,8 @@ export const FooterSection = () => {
                 <div key={index} className="glass-effect p-3 sm:p-4 rounded-lg border border-border/20">
                   <p className="text-foreground font-medium text-sm sm:text-base">{ref.name}</p>
                   <p className="text-muted-foreground text-xs sm:text-sm">{ref.title}</p>
-                  <a 
-                    href={`mailto:${ref.contact}`}
-                    className="text-primary text-xs sm:text-sm break-words hover:text-primary/80 transition-colors"
-                  >
-                    {ref.contact}
-                  </a>
+                  {/* Enhanced contact info with smart clickable links */}
+                  <ContactInfo contact={ref.contact} />
                 </div>
               ))}
             </div>
