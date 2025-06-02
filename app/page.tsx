@@ -87,6 +87,7 @@ export default function Home() {
           
           {/* Main application container with responsive design and RTL support */}
           <div
+            suppressHydrationWarning
             className={`flex flex-col min-h-screen bg-gradient-dark text-foreground overflow-x-hidden transition-colors duration-300 ${dir === "rtl" ? "font-arabic" : "font-sans"}`}
           >
             {/* Global UI components */}

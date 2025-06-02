@@ -26,7 +26,7 @@ export default function ExpandableProjectCard({
   title,
   badge,
   description,
-  tags,
+  tags = [],
   detailedDescription,
   challenges,
   solutions,
@@ -58,87 +58,98 @@ export default function ExpandableProjectCard({
     setActiveTab(tab);
   }, []);
 
+  // Check if required props are available (prevents hydration issues)
+  const isLoading = !title || !badge || !description;
+
   // Memoize the header content
-  const cardHeaderContent = useMemo(() => (
-    <CardHeader className={image ? "pt-3" : ""}>
-      <CardTitle className="text-foreground flex justify-between items-center group">
-        <span className="group-hover:text-primary transition-colors duration-300">{title}</span>
-        {!image && (
-          <div className="flex space-x-2">
-            {githubUrl && (
-              <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-                <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full hover:bg-primary/20 hover:text-primary">
-                  <Github className="h-4 w-4" />
-                </Button>
-              </a>
-            )}
-            {liveUrl && (
-              <a href={liveUrl} target="_blank" rel="noopener noreferrer">
-                <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full hover:bg-primary/20 hover:text-primary">
-                  <ExternalLink className="h-4 w-4" />
-                </Button>
-              </a>
-            )}
-          </div>
-        )}
-      </CardTitle>
-      {!image && <Badge className="bg-primary/20 text-primary w-fit shadow-glow">{badge}</Badge>}
-    </CardHeader>
-  ), [image, title, githubUrl, liveUrl, badge]);
+  const cardHeaderContent = useMemo(() => {
+    if (isLoading) return null;
+    
+    return (
+      <CardHeader className={image ? "pt-3" : ""}>
+        <CardTitle className="text-foreground flex justify-between items-center group">
+          <span className="group-hover:text-primary transition-colors duration-300">{title}</span>
+          {!image && (
+            <div className="flex space-x-2">
+              {githubUrl && (
+                <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+                  <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full hover:bg-primary/20 hover:text-primary">
+                    <Github className="h-4 w-4" />
+                  </Button>
+                </a>
+              )}
+              {liveUrl && (
+                <a href={liveUrl} target="_blank" rel="noopener noreferrer">
+                  <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full hover:bg-primary/20 hover:text-primary">
+                    <ExternalLink className="h-4 w-4" />
+                  </Button>
+                </a>
+              )}
+            </div>
+          )}
+        </CardTitle>
+        {!image && <Badge className="bg-primary/20 text-primary w-fit shadow-glow">{badge}</Badge>}
+      </CardHeader>
+    );
+  }, [image, title, githubUrl, liveUrl, badge, isLoading]);
 
   // Memoize the tab buttons to prevent re-rendering
-  const tabButtons = useMemo(() => (
-    <div className="flex space-x-1 border-b border-border mb-4">
-      {detailedDescription && (
-        <button 
-          onClick={() => switchTab("overview")}
-          className={`px-3 py-2 text-sm font-medium flex items-center gap-1 ${activeTab === "overview" 
-            ? "text-primary border-b-2 border-primary" 
-            : "text-muted-foreground hover:text-foreground"}`}
-        >
-          <FileText className="h-3.5 w-3.5" />
-          <span>Overview</span>
-        </button>
-      )}
-      {challenges && challenges.length > 0 && (
-        <button 
-          onClick={() => switchTab("challenges")}
-          className={`px-3 py-2 text-sm font-medium flex items-center gap-1 ${activeTab === "challenges" 
-            ? "text-primary border-b-2 border-primary" 
-            : "text-muted-foreground hover:text-foreground"}`}
-        >
-          <Code className="h-3.5 w-3.5" />
-          <span>Challenges</span>
-        </button>
-      )}
-      {solutions && solutions.length > 0 && (
-        <button 
-          onClick={() => switchTab("solutions")}
-          className={`px-3 py-2 text-sm font-medium flex items-center gap-1 ${activeTab === "solutions" 
-            ? "text-primary border-b-2 border-primary" 
-            : "text-muted-foreground hover:text-foreground"}`}
-        >
-          <Lightbulb className="h-3.5 w-3.5" />
-          <span>Solutions</span>
-        </button>
-      )}
-      {results && results.length > 0 && (
-        <button 
-          onClick={() => switchTab("results")}
-          className={`px-3 py-2 text-sm font-medium flex items-center gap-1 ${activeTab === "results" 
-            ? "text-primary border-b-2 border-primary" 
-            : "text-muted-foreground hover:text-foreground"}`}
-        >
-          <BarChart className="h-3.5 w-3.5" />
-          <span>Results</span>
-        </button>
-      )}
-    </div>
-  ), [activeTab, detailedDescription, challenges, solutions, results, switchTab]);
+  const tabButtons = useMemo(() => {
+    if (isLoading) return null;
+    
+    return (
+      <div className="flex space-x-1 border-b border-border mb-4">
+        {detailedDescription && (
+          <button 
+            onClick={() => switchTab("overview")}
+            className={`px-3 py-2 text-sm font-medium flex items-center gap-1 ${activeTab === "overview" 
+              ? "text-primary border-b-2 border-primary" 
+              : "text-muted-foreground hover:text-foreground"}`}
+          >
+            <FileText className="h-3.5 w-3.5" />
+            <span>Overview</span>
+          </button>
+        )}
+        {challenges && challenges.length > 0 && (
+          <button 
+            onClick={() => switchTab("challenges")}
+            className={`px-3 py-2 text-sm font-medium flex items-center gap-1 ${activeTab === "challenges" 
+              ? "text-primary border-b-2 border-primary" 
+              : "text-muted-foreground hover:text-foreground"}`}
+          >
+            <Code className="h-3.5 w-3.5" />
+            <span>Challenges</span>
+          </button>
+        )}
+        {solutions && solutions.length > 0 && (
+          <button 
+            onClick={() => switchTab("solutions")}
+            className={`px-3 py-2 text-sm font-medium flex items-center gap-1 ${activeTab === "solutions" 
+              ? "text-primary border-b-2 border-primary" 
+              : "text-muted-foreground hover:text-foreground"}`}
+          >
+            <Lightbulb className="h-3.5 w-3.5" />
+            <span>Solutions</span>
+          </button>
+        )}
+        {results && results.length > 0 && (
+          <button 
+            onClick={() => switchTab("results")}
+            className={`px-3 py-2 text-sm font-medium flex items-center gap-1 ${activeTab === "results" 
+              ? "text-primary border-b-2 border-primary" 
+              : "text-muted-foreground hover:text-foreground"}`}
+          >
+            <BarChart className="h-3.5 w-3.5" />
+            <span>Results</span>
+          </button>
+        )}
+      </div>
+    );
+  }, [activeTab, detailedDescription, challenges, solutions, results, switchTab, isLoading]);
 
   // Memoize the image section
   const imageSection = useMemo(() => {
-    if (!image) return null;
+    if (!image || isLoading) return null;
     
     return (
       <div className="relative overflow-hidden h-48 group">
@@ -172,7 +183,22 @@ export default function ExpandableProjectCard({
         )}
       </div>
     );
-  }, [image, title, badge, githubUrl, liveUrl]);
+  }, [image, title, badge, githubUrl, liveUrl, isLoading]);
+
+  // Show loading state if required props are not available
+  if (isLoading) {
+    return (
+      <div className="bg-card border border-border rounded-lg p-6 animate-pulse">
+        <div className="h-6 bg-muted/20 rounded mb-3"></div>
+        <div className="h-4 bg-muted/20 rounded mb-2"></div>
+        <div className="h-4 bg-muted/20 rounded w-3/4 mb-4"></div>
+        <div className="flex gap-2">
+          <div className="h-6 w-16 bg-muted/20 rounded"></div>
+          <div className="h-6 w-20 bg-muted/20 rounded"></div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <motion.div

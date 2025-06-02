@@ -8,6 +8,7 @@ type LanguageContextType = {
   setLanguage: (lang: string) => void
   t: (key: string) => any
   dir: string
+  isLoaded: boolean
 }
 
 // Export the LanguageContext so it can be imported elsewhere
@@ -16,6 +17,7 @@ export const LanguageContext = createContext<LanguageContextType>({
   setLanguage: () => {},
   t: () => "",
   dir: "ltr",
+  isLoaded: false,
 })
 
 export const useLanguage = () => useContext(LanguageContext)
@@ -27,6 +29,7 @@ interface LanguageProviderProps {
 export const LanguageProvider = ({ children }: LanguageProviderProps) => {
   const [language, setLanguage] = useState("en")
   const [dir, setDir] = useState("ltr")
+  const [isLoaded, setIsLoaded] = useState(false)
 
   // Function to get nested translations using dot notation
   const t = (key: string) => {
@@ -37,6 +40,8 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
       if (value && typeof value === "object" && k in value) {
         value = value[k]
       } else {
+        // Return fallback to prevent undefined errors during hydration
+        console.warn(`Translation key "${key}" not found for language "${language}"`)
         return key // Return the key if translation not found
       }
     }
@@ -44,31 +49,40 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
     return value
   }
 
-  // Update document direction when language changes
+  // Load saved language preference on initial load - run only on client
   useEffect(() => {
-    setDir(language === "ar" ? "rtl" : "ltr")
-    document.documentElement.dir = language === "ar" ? "rtl" : "ltr"
-    document.documentElement.lang = language
-
-    // Add a class to the body for additional RTL styling
-    if (language === "ar") {
-      document.body.classList.add("rtl")
-    } else {
-      document.body.classList.remove("rtl")
-    }
-
-    // Store language preference
-    localStorage.setItem("language", language)
-  }, [language])
-
-  // Load saved language preference on initial load
-  useEffect(() => {
-    const savedLanguage = localStorage.getItem("language")
-    if (savedLanguage && (savedLanguage === "en" || savedLanguage === "ar")) {
-      setLanguage(savedLanguage)
+    if (typeof window !== 'undefined') {
+      const savedLanguage = localStorage.getItem("language")
+      if (savedLanguage && (savedLanguage === "en" || savedLanguage === "ar")) {
+        setLanguage(savedLanguage)
+      }
+      setIsLoaded(true)
     }
   }, [])
 
-  return <LanguageContext.Provider value={{ language, setLanguage, t, dir }}>{children}</LanguageContext.Provider>
+  // Update document direction when language changes
+  useEffect(() => {
+    if (typeof window !== 'undefined' && isLoaded) {
+      setDir(language === "ar" ? "rtl" : "ltr")
+      document.documentElement.dir = language === "ar" ? "rtl" : "ltr"
+      document.documentElement.lang = language
+
+      // Add a class to the body for additional RTL styling
+      if (language === "ar") {
+        document.body.classList.add("rtl")
+      } else {
+        document.body.classList.remove("rtl")
+      }
+
+      // Store language preference
+      localStorage.setItem("language", language)
+    }
+  }, [language, isLoaded])
+
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, t, dir, isLoaded }}>
+      {children}
+    </LanguageContext.Provider>
+  )
 }
 

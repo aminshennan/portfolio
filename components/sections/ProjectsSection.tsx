@@ -56,8 +56,40 @@ const validateProjectData = (project: Project): Project => {
   };
 };
 
+// Loading component for projects section
+const ProjectsLoading = () => (
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+    {[1, 2, 3].map((i) => (
+      <div key={i} className="bg-card border border-border rounded-lg p-6 animate-pulse">
+        <div className="h-6 bg-muted/20 rounded mb-3"></div>
+        <div className="h-4 bg-muted/20 rounded mb-2"></div>
+        <div className="h-4 bg-muted/20 rounded w-3/4 mb-4"></div>
+        <div className="flex gap-2">
+          <div className="h-6 w-16 bg-muted/20 rounded"></div>
+          <div className="h-6 w-20 bg-muted/20 rounded"></div>
+        </div>
+      </div>
+    ))}
+  </div>
+);
+
 export const ProjectsSection = () => {
-  const { t } = useLanguage();
+  const { t, isLoaded } = useLanguage();
+
+  // Show loading state until translations are loaded
+  if (!isLoaded) {
+    return (
+      <Section id="projects" className="w-full py-12 md:py-24 lg:py-32 section-background">
+        <div className="container px-4 md:px-6 relative z-10">
+          <div className="text-center space-y-4 mb-12">
+            <div className="h-8 w-48 bg-muted/20 rounded mx-auto animate-pulse"></div>
+            <div className="h-4 w-80 bg-muted/20 rounded mx-auto animate-pulse"></div>
+          </div>
+          <ProjectsLoading />
+        </div>
+      </Section>
+    );
+  }
 
   // Type assertion for projectList - ensure the structure in translations.ts matches
   const projectList = t('projects.projectList') as Project[] || [];

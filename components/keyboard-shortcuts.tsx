@@ -16,7 +16,6 @@ const SECTION_SHORTCUTS = [
 
 // Extract action shortcuts to a constants array
 const ACTION_SHORTCUTS = [
-  { key: "t", action: "Toggle theme", description: "Toggle theme", altKey: true },
   { key: "d", action: "downloadResume", description: "Download resume", altKey: true },
   { key: "?", action: "showHelp", description: "Show this help", altKey: false },
 ]
