@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useEffect, useCallback, useMemo } from "react"
+import { useState, useRef, useCallback, useMemo } from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -20,41 +20,6 @@ export interface ProjectProps {
   liveUrl?: string
   image?: string
 }
-
-// Extracted utility function for metric extraction
-const extractMetrics = (results?: string[]) => {
-  if (!results || !results.length) return [];
-  
-  const metrics = [];
-  const regex = /(\d+)([%x])|(\d+)%|\b(increased|reduced|improved) by (\d+)%/gi;
-  
-  for (const result of results) {
-    const matches = [...result.matchAll(regex)];
-    if (matches.length > 0) {
-      for (const match of matches) {
-        const value = match[1] || match[5] || 0;
-        const unit = match[2] || '%';
-        const action = match[4]?.toLowerCase() || '';
-        
-        let label = '';
-        if (result.toLowerCase().includes('accuracy')) label = 'Accuracy';
-        else if (result.toLowerCase().includes('time')) label = 'Time Saved';
-        else if (result.toLowerCase().includes('conversion')) label = 'Conversion Rate';
-        else if (result.toLowerCase().includes('error')) label = 'Error Reduction';
-        else label = 'Improvement';
-        
-        metrics.push({
-          value: parseInt(value as string),
-          unit,
-          label,
-          action
-        });
-      }
-    }
-  }
-  
-  return metrics.slice(0, 3); // Limit to 3 metrics
-};
 
 // Update the card styling to use theme variables and be compatible with both modes
 export default function ExpandableProjectCard({
@@ -76,18 +41,6 @@ export default function ExpandableProjectCard({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
   
-  // Determine if we have project metrics to show - memoized
-  const hasMetrics = useMemo(() => 
-    results && results.length > 0 && results.some(result => 
-      result.includes('%') || result.match(/\d+%/) || result.match(/\d+x/) || 
-      result.includes('increased') || result.includes('reduced')
-    ), 
-    [results]
-  );
-  
-  // Memoize metrics to prevent recalculation on every render
-  const metrics = useMemo(() => extractMetrics(results), [results]);
-
   // Use callbacks for event handlers
   const toggleExpanded = useCallback(() => {
     setIsExpanded(prev => !prev);

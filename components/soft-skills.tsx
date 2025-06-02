@@ -90,9 +90,6 @@ export default function SoftSkills() {
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {softSkills.map((skill, index) => {
-          // Calculate the size based on strength (7-10 range mapped to 80-100%)
-          const size = 80 + (skill.strength - 7) * 6.67
-
           return (
             <motion.div
               key={skill.key}

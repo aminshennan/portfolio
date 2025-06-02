@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { useState } from "react"
 
 export default function LanguageSwitcher() {
-  const { language, setLanguage, t, dir } = useLanguage()
+  const { language, setLanguage } = useLanguage()
   const [isChanging, setIsChanging] = useState(false)
 
   const handleLanguageToggle = () => {

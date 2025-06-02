@@ -1,25 +1,13 @@
 "use client";
 
-import React, { Suspense, lazy, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Linkedin, Github, Phone, Check, Send, User, FileText } from 'lucide-react';
+import React, { Suspense } from 'react';
+import { motion } from 'framer-motion';
+import { Mail, Phone, Linkedin, Github } from 'lucide-react';
+import { Section } from '@/components/section';
 import { useLanguage } from '@/contexts/language-context';
 import dynamic from 'next/dynamic';
-import { Section } from '@/components/section';
-import EnhancedCard from '@/components/enhanced-card';
-import { z } from "zod";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 
-// Dynamic imports
-const GeometricShapes = lazy(() => import("@/components/geometric-shapes"));
-const AnimatedGradientBorder = dynamic(() => import('@/components/animated-gradient-border'), {
-  loading: () => <div className="border border-primary/20 rounded-lg p-1" />
-});
+const GeometricShapes = React.lazy(() => import("@/components/geometric-shapes"));
 const EnhancedSectionHeader = dynamic(() => import('@/components/enhanced-section-header'), {
   loading: () => (
     <div className="text-center space-y-4 mb-12">
@@ -28,96 +16,36 @@ const EnhancedSectionHeader = dynamic(() => import('@/components/enhanced-sectio
     </div>
   )
 });
-const ECardContent = dynamic(() => import('@/components/enhanced-card').then(mod => mod.CardContent))
-
-// Form schema
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
-  }),
-  email: z.string().email({
-    message: "Please enter a valid email address.",
-  }),
-  subject: z.string().min(5, {
-    message: "Subject must be at least 5 characters.",
-  }),
-  message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
-  }),
-});
-
-// Helper component for contact cards
-const ContactCard = ({ icon: Icon, title, value, href }: {
-  icon: React.ElementType;
-  title: string;
-  value: string;
-  href?: string;
-}) => {
-  const { dir } = useLanguage();
-  const cardContent = (
-    <EnhancedCard hoverEffect="glow" className="glass-effect transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 h-full">
-      <ECardContent className="p-6">
-        <div className={`flex items-center ${dir === "rtl" ? "space-x-reverse" : ""} space-x-4`}>
-          <div className="bg-primary/20 p-3 rounded-full shadow-neon transform transition-transform duration-300 group-hover:scale-110">
-            <Icon className="h-6 w-6 text-primary" />
-          </div>
-          <div>
-            <h3 className="text-lg font-medium text-foreground">{title}</h3>
-            <p className="text-muted-foreground break-all">{value}</p>
-          </div>
-        </div>
-      </ECardContent>
-    </EnhancedCard>
-  );
-
-  return (
-    <AnimatedGradientBorder glowIntensity="medium">
-      {href ? (
-        <a href={href} target="_blank" rel="noopener noreferrer">
-          {cardContent}
-        </a>
-      ) : (
-        cardContent
-      )}
-    </AnimatedGradientBorder>
-  );
-};
 
 export const ContactSection = () => {
-  const { t, dir } = useLanguage();
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const { t } = useLanguage();
 
   const contactMethods = [
-    { icon: Mail, title: t("contact.email"), value: t("contact.emailAddress") },
-    { icon: Linkedin, title: t("contact.linkedin"), value: t("contact.linkedinHandle"), href: t("contact.linkedinUrl") },
-    { icon: Github, title: t("contact.github"), value: t("contact.githubHandle"), href: t("contact.githubUrl") },
-    { icon: Phone, title: t("contact.phone"), value: t("contact.phoneNumber") },
-  ];
-
-  // Form handling
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
+    { 
+      icon: Mail, 
+      title: t("contact.email"), 
+      value: t("contact.emailAddress"),
+      href: `mailto:${t("contact.emailAddress")}`
     },
-  });
-
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Here you would handle the form submission (e.g., send email, save to DB)
-    console.log(values);
-    
-    // Show success message
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      form.reset();
-      setIsSubmitted(false);
-    }, 3000);
-  }
+    { 
+      icon: Phone, 
+      title: t("contact.phone"), 
+      value: t("contact.phoneNumber"),
+      href: `tel:${t("contact.phoneNumber")}`
+    },
+    { 
+      icon: Linkedin, 
+      title: t("contact.linkedin"), 
+      value: t("contact.linkedinHandle"),
+      href: t("contact.linkedinUrl")
+    },
+    { 
+      icon: Github, 
+      title: t("contact.github"), 
+      value: t("contact.githubHandle"),
+      href: t("contact.githubUrl")
+    },
+  ];
 
   return (
     <Section id="contact" className="w-full py-12 md:py-24 lg:py-32 section-background">
@@ -143,27 +71,31 @@ export const ContactSection = () => {
           dividerVariant="glow"
         />
 
-        
-          <div className="space-y-6">
-            <h3 className="text-xl font-semibold mb-4 text-foreground">
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
+        <div className="mt-12 max-w-4xl mx-auto">
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {contactMethods.map((method, index) => (
+              <motion.a
+                key={method.title}
+                href={method.href}
+                target={method.href?.startsWith('http') ? '_blank' : undefined}
+                rel={method.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group flex flex-col items-center text-center p-6 bg-card/50 hover:bg-card/80 rounded-lg border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
               >
-                {t("contact.getInTouch")}
-              </motion.span>
-            </h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {contactMethods.map((method) => (
-                <ContactCard key={method.title} {...method} />
-              ))}
-            </div>
-            
+                <div className="bg-primary/20 p-4 rounded-full mb-4 group-hover:bg-primary/30 transition-colors">
+                  <method.icon className="h-8 w-8 text-primary" />
+                </div>
+                <h4 className="font-medium text-foreground mb-2">{method.title}</h4>
+                <p className="text-muted-foreground text-sm break-all group-hover:text-foreground transition-colors">
+                  {method.value}
+                </p>
+              </motion.a>
+            ))}
+          </div>
 
-          
-          
         </div>
       </div>
     </Section>

@@ -504,7 +504,7 @@ export const translations: Translations = {
 
     // Contact section
     contact: {
-      title: "Contact Me",
+      title: "Get in Touch",
       subtitle: "Let's discuss your next project",
       email: "Email",
       emailAddress: "aminshennan@gmail.com",

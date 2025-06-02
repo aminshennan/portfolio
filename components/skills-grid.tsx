@@ -1,8 +1,9 @@
 "use client"
 
+import React from "react"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import { Brain, BarChart, Database, Code, Server, LineChart, Cpu, MessageSquare } from "lucide-react"
+import { Brain, BarChart, Database, LineChart, Cpu, MessageSquare } from "lucide-react"
 import AnimatedSkillBar from "./animated-skill-bar"
 
 const technicalSkills = [
@@ -55,7 +56,7 @@ export default function SkillsGrid() {
         <motion.div variants={item}>
           <h3 className="text-xl font-bold text-white mb-4">Technical Skills</h3>
           <div className="grid grid-cols-1 gap-y-4">
-            {technicalSkills.map((skill, index) => (
+            {technicalSkills.map((skill) => (
               <AnimatedSkillBar key={skill.name} name={skill.name} percentage={skill.percentage} icon={skill.icon} />
             ))}
           </div>

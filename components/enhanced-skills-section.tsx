@@ -1,22 +1,21 @@
 "use client"
 
-import type React from "react"
+import React from "react"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import {
-  Code,
-  Database,
-  BarChart,
-  LineChart,
-  Workflow,
   Users,
-  MessageSquare,
-  Brain,
   Clock,
+  Target,
   Lightbulb,
   Puzzle,
   Zap,
-  Target,
+  MessageSquare,
+  Brain,
+  Database,
+  BarChart,
+  LineChart,
+  Code,
 } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import EnhancedCard, {
@@ -25,7 +24,7 @@ import EnhancedCard, {
   CardTitle as ECardTitle,
 } from "@/components/enhanced-card"
 import AnimatedSkillBar from "./animated-skill-bar"
-import { Cpu, Server } from "lucide-react"
+import { Cpu } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 
 interface Skill {
@@ -230,7 +229,7 @@ export default function EnhancedSkillsSection() {
                 <ECardHeader>
                   <div className="flex items-center gap-3">
                     <div className="text-yellow-400">
-                      <Workflow className="h-6 w-6" />
+                      <LineChart className="h-6 w-6" />
                     </div>
                     <ECardTitle>{t("skills.categories.toolsFrameworks")}</ECardTitle>
                   </div>
@@ -260,9 +259,6 @@ export default function EnhancedSkillsSection() {
             className="grid grid-cols-2 md:grid-cols-4 gap-6"
           >
             {softSkills.map((skill, index) => {
-              // Calculate the size based on strength (7-10 range mapped to 80-100%)
-              const size = 80 + (skill.strength - 7) * 6.67
-
               return (
                 <motion.div
                   key={skill.name}
