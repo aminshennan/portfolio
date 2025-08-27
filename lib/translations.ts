@@ -46,12 +46,12 @@ export const translations: Translations = {
     // Hero section
     hero: {
       title: "Amin Ahmed Alawad",
-      subtitle: "Data Scientist | Machine Learning Engineer | AI Enthusiast",
+      subtitle: "AI Engineer | Data Scientist | Machine Learning Engineer",
       downloadCV: "Download CV",
       contactMe: "Contact Me",
       stats: {
         languages: "Programming Languages",
-        internships: "Internships",
+        experience: "Years Experience",
         projects: "Projects",
         leadership: "Leadership Roles",
       },
@@ -62,8 +62,8 @@ export const translations: Translations = {
       title: "About Me",
       subtitle: "Transforming complex data into actionable insights",
       paragraph1:
-        "Dynamic Data Scientist with hands-on experience in data analysis and visualisation over 6 months. Skilled in automating financial KPI dashboards with Power BI and Microsoft Fabric, and developing match analytics dashboards from APIs.",
-      
+        "Dynamic AI Engineer and Data Scientist with hands-on experience in AI solutions, automation, and data analysis. Currently working at Aurorise AI delivering automation and AI solutions for B2B clients, while skilled in automating financial KPI dashboards with Power BI and Microsoft Fabric, and developing match analytics dashboards from APIs.",
+
       paragraph2: "Enhanced operational efficiency by reducing manual Excel tasks at the Asian Football Confederation. Proficient in Python scripting and ETL processes. Ready to leverage analytical expertise to drive data-informed decision-making in a challenging environment.",
       paragraph3: "",
       sectionHeadings: {
@@ -74,6 +74,11 @@ export const translations: Translations = {
         personalAttributes: "Personal Attributes"
       },
       highlights: [
+        {
+          id: "ai-engineer",
+          title: "AI Engineer at Aurorise AI",
+          description: "Currently working as an AI Engineer delivering automation and AI solutions for B2B clients, including chatbot development, workflow automation, and CRM platform customization."
+        },
         {
           id: "education",
           title: "Academic Excellence",
@@ -206,7 +211,7 @@ export const translations: Translations = {
       solutions: "Solutions",
       results: "Results",
       featuredProject: "Featured Project",
-      
+
       projectList: [
         {
           id: "sports-analytics",
@@ -292,7 +297,7 @@ export const translations: Translations = {
           title: "Intelligent Car-Parking System",
           badge: "Computer Vision",
           description: "YOLOv3 + OpenCV solution that counts vehicles, detects empty slots, and classifies car colors in real time.",
-          tags: ["Python", "YOLOv3", "OpenCV", "Computer Vision","Jupyter"],
+          tags: ["Python", "YOLOv3", "OpenCV", "Computer Vision", "Jupyter"],
           detailedDescription: "YOLOv3 + OpenCV solution that counts vehicles, detects empty slots, and classifies car colors in real time.",
           challenges: [
             "Limited dataset of only 95 images (mitigated by augmentation)",
@@ -421,6 +426,20 @@ export const translations: Translations = {
       title: "Experience & Education",
       subtitle: "My professional journey and academic background",
       timeline: [
+        {
+          title: "AI Engineer",
+          company: "Aurorise AI",
+          period: "04/2025 - Present",
+          description: [
+            "Working with a small startup team to deliver automation and AI solutions for B2B clients on the company's white-labeled CRM platform, Magic.ai",
+            "Supporting projects involving automation workflows, chatbot development, compliance setup, and website creation tailored to client requirements",
+            "Assisting in WeBlast management and client-side service delivery to improve customer engagement and operations",
+            "Contributing to project management tasks in a startup environment, coordinating between technical implementation and client needs",
+          ],
+          type: "work",
+          location: "Cyberjaya, Malaysia",
+          skills: ["Automation", "CRM Systems", "Chatbot Development", "Client Support", "Project Management", "Startup Operations"],
+        },
         {
           title: "Data Analyst Intern",
           company: "SRKK",
@@ -582,12 +601,12 @@ export const translations: Translations = {
     // Hero section
     hero: {
       title: "آمن شنان",
-      subtitle: "عالم بيانات | مهندس تعلم آلي | مهتم بالذكاء الاصطناعي",
+      subtitle: "مهندس ذكاء اصطناعي | عالم بيانات | مهندس تعلم آلي",
       downloadCV: "تحميل السيرة الذاتية",
       contactMe: "اتصل بي",
       stats: {
         languages: "لغات البرمجة",
-        internships: "التدريب العملي",
+        experience: "سنوات الخبرة",
         projects: "المشاريع",
         leadership: "أدوار قيادية",
       },
@@ -598,7 +617,7 @@ export const translations: Translations = {
       title: "نبذة عني",
       subtitle: "تحويل البيانات المعقدة إلى رؤى قابلة للتنفيذ",
       paragraph1:
-        "عالم بيانات ديناميكي مع خبرة عملية في تحليل البيانات وتصورها لأكثر من 6 أشهر. ماهر في أتمتة لوحات مؤشرات الأداء المالية باستخدام Power BI و Microsoft Fabric، وتطوير لوحات تحليلات المباريات من واجهات برمجة التطبيقات.",
+        "مهندس ذكاء اصطناعي وعالم بيانات ديناميكي مع خبرة عملية في حلول الذكاء الاصطناعي والأتمتة وتحليل البيانات. أعمل حالياً في أورورايز للذكاء الاصطناعي لتقديم حلول الأتمتة والذكاء الاصطناعي لعملاء B2B، مع مهارة في أتمتة لوحات مؤشرات الأداء المالية باستخدام Power BI و Microsoft Fabric، وتطوير لوحات تحليلات المباريات من واجهات برمجة التطبيقات.",
       paragraph2:
         "تعزيز الكفاءة التشغيلية من خلال تقليل المهام اليدوية في Excel في الاتحاد الآسيوي لكرة القدم. متمكن في برمجة Python وعمليات ETL. جاهز لاستثمار الخبرة التحليلية لدفع اتخاذ القرارات المستندة إلى البيانات في بيئة مليئة بالتحديات.",
       paragraph3: "",
@@ -610,6 +629,11 @@ export const translations: Translations = {
         personalAttributes: "السمات الشخصية"
       },
       highlights: [
+        {
+          id: "ai-engineer",
+          title: "مهندس ذكاء اصطناعي في أورورايز للذكاء الاصطناعي",
+          description: "أعمل حالياً كمهندس ذكاء اصطناعي لتقديم حلول الأتمتة والذكاء الاصطناعي لعملاء B2B، بما في ذلك تطوير روبوتات المحادثة وأتمتة سير العمل وتخصيص منصة CRM."
+        },
         {
           id: "education",
           title: "التميز الأكاديمي",
@@ -742,7 +766,7 @@ export const translations: Translations = {
       solutions: "الحلول",
       results: "النتائج",
       featuredProject: "مشروع مميز",
-      
+
       projectList: [
         {
           id: "sports-analytics",
@@ -828,7 +852,7 @@ export const translations: Translations = {
           title: "نظام الموقف الذكي",
           badge: "رؤية حاسوبية",
           description: "حل YOLOv3 + OpenCV يقوم بعد المركبات، ويكتشف المواقف الفارغة، ويصنف ألوان المركبات في الوقت الفعلي.",
-          tags: ["Python", "YOLOv3", "OpenCV", "Computer Vision","Jupyter"],
+          tags: ["Python", "YOLOv3", "OpenCV", "Computer Vision", "Jupyter"],
           detailedDescription: "حل YOLOv3 + OpenCV يقوم بعد المركبات، ويكتشف المواقف الفارغة، ويصنف ألوان المركبات في الوقت الفعلي.",
           challenges: [
             "مجموعة بيانات محدودة من 95 صورة فقط (تم التخفيف من خلال التعزيز)",
@@ -1038,6 +1062,20 @@ export const translations: Translations = {
       title: "الخبرة والتعليم",
       subtitle: "رحلتي المهنية وخلفيتي الأكاديمية",
       timeline: [
+        {
+          title: "مهندس الذكاء الاصطناعي",
+          company: "أورورايز للذكاء الاصطناعي",
+          period: "04/2025 - الحالي",
+          description: [
+            "العمل مع فريق ناشئ صغير لتقديم حلول الأتمتة والذكاء الاصطناعي لعملاء B2B على منصة CRM المخصصة للشركة، Magic.ai",
+            "دعم المشاريع المتعلقة بسير العمل الآلي، تطوير روبوتات المحادثة، إعداد الامتثال، وإنشاء مواقع الويب المخصصة لمتطلبات العملاء",
+            "المساعدة في إدارة WeBlast وتسليم الخدمات من جانب العميل لتحسين مشاركة العملاء والعمليات",
+            "المساهمة في مهام إدارة المشاريع في بيئة ناشئة، والتنسيق بين التنفيذ التقني واحتياجات العملاء",
+          ],
+          type: "work",
+          location: "سايبرجايا، ماليزيا",
+          skills: ["الأتمتة", "أنظمة CRM", "تطوير روبوتات المحادثة", "دعم العملاء", "إدارة المشاريع", "عمليات الشركات الناشئة"],
+        },
         {
           title: "متدرب محلل بيانات",
           company: "SRKK",
