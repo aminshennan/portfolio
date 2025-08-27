@@ -93,7 +93,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "F1ajuVdA20sfh1LvMJ9G9MIPH5YTs5XL1_5RFNphj5A",
+    google: "googlef35ab39ee7fbaeec",
   },
 }
 
@@ -142,7 +142,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           src="/scripts/fix-hydration.js"
           strategy="beforeInteractive"
         />
-        <meta name="google-site-verification" content="F1ajuVdA20sfh1LvMJ9G9MIPH5YTs5XL1_5RFNphj5A">
+        <meta name="google-site-verification" content="F1ajuVdA20sfh1LvMJ9G9MIPH5YTs5XL1_5RFNphj5A" />
       </head>
       <body suppressHydrationWarning className="min-h-screen bg-background font-sans antialiased">
         <ErrorBoundary>
