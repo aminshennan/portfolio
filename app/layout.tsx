@@ -93,7 +93,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "googlef35ab39ee7fbaeec",
+    google: "F1ajuVdA20sfh1LvMJ9G9MIPH5YTs5XL1_5RFNphj5A",
   },
 }
 
@@ -121,27 +121,28 @@ interface RootLayoutProps {
  */
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html 
-      lang="en" 
-      suppressHydrationWarning 
+    <html
+      lang="en"
+      suppressHydrationWarning
       className={`${inter.variable} ${notoKufiArabic.variable}`}
     >
       <head>
         {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
+
         {/* Favicon and app icons */}
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/android-chrome-192x192.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        
+
         {/* Script to fix hydration issues caused by browser extensions like Grammarly */}
-        <Script 
-          id="hydration-fix" 
-          src="/scripts/fix-hydration.js" 
-          strategy="beforeInteractive" 
+        <Script
+          id="hydration-fix"
+          src="/scripts/fix-hydration.js"
+          strategy="beforeInteractive"
         />
+        <meta name="google-site-verification" content="F1ajuVdA20sfh1LvMJ9G9MIPH5YTs5XL1_5RFNphj5A">
       </head>
       <body suppressHydrationWarning className="min-h-screen bg-background font-sans antialiased">
         <ErrorBoundary>
@@ -156,7 +157,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <LanguageProvider>
               {/* Main application content */}
               {children}
-              
+
               {/* Performance monitoring and analytics */}
             </LanguageProvider>
           </ThemeProvider>
