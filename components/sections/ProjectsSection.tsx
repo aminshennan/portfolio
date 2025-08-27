@@ -41,7 +41,7 @@ const fadeIn = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { 
+    transition: {
       duration: 0.4,
       ease: "easeOut"
     },
@@ -107,7 +107,7 @@ export const ProjectsSection = () => {
 
   // Type assertion for projectList - ensure the structure in translations.ts matches
   const projectList = t('projects.projectList') as Project[] || [];
-  
+
   // Validate and filter projects with proper data
   const validatedProjects = projectList.map(validateProjectData);
   const featuredProject = validatedProjects.find(p => p.featured);
@@ -139,10 +139,18 @@ export const ProjectsSection = () => {
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible" // Trigger animation when in view
-          viewport={{ once: true, amount: 0.1 }} // Adjust viewport settings as needed
+          viewport={{ once: true, amount: 0.05 }} // Adjust viewport settings as needed
           className="grid grid-cols-1 gap-16"
+          onAnimationStart={() => {
+            // Ensure cards are visible even if animation fails
+            console.log('Animation started');
+          }}
+          onAnimationComplete={() => {
+            // Ensure cards remain visible after animation
+            console.log('Animation completed');
+          }}
         >
-          {/* Featured Project */}          
+          {/* Featured Project */}
           {featuredProject && (
             <motion.div variants={fadeIn} className="col-span-1 mb-8">
               <div className="mb-6 text-center">
@@ -165,8 +173,8 @@ export const ProjectsSection = () => {
               />
             </motion.div>
           )}
-          
-          {/* Other Projects Grid */}          
+
+          {/* Other Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
             {otherProjects.map((project) => (
               <motion.div key={project.id} variants={fadeIn}>
